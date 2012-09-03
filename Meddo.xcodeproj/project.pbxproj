@@ -1,0 +1,458 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A659E11B15F45678006C244C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A659E11A15F45678006C244C /* Cocoa.framework */; };
+		A659E12515F45678006C244C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A659E12315F45678006C244C /* InfoPlist.strings */; };
+		A659E12715F45678006C244C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A659E12615F45678006C244C /* main.m */; };
+		A659E12B15F45678006C244C /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = A659E12915F45678006C244C /* Credits.rtf */; };
+		A659E12E15F45678006C244C /* FNAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A659E12D15F45678006C244C /* FNAppDelegate.m */; };
+		A659E13115F45678006C244C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = A659E12F15F45678006C244C /* MainMenu.xib */; };
+		A659E13915F45678006C244C /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A659E13815F45678006C244C /* SenTestingKit.framework */; };
+		A659E13A15F45679006C244C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A659E11A15F45678006C244C /* Cocoa.framework */; };
+		A659E14215F45679006C244C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A659E14015F45679006C244C /* InfoPlist.strings */; };
+		A659E14515F45679006C244C /* MeddoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A659E14415F45679006C244C /* MeddoTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A659E13B15F45679006C244C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A659E10D15F45678006C244C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A659E11515F45678006C244C;
+			remoteInfo = Meddo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A659E11615F45678006C244C /* Meddo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meddo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A659E11A15F45678006C244C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		A659E11D15F45678006C244C /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		A659E11E15F45678006C244C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		A659E11F15F45678006C244C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A659E12215F45678006C244C /* Meddo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Meddo-Info.plist"; sourceTree = "<group>"; };
+		A659E12415F45678006C244C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A659E12615F45678006C244C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A659E12815F45678006C244C /* Meddo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Meddo-Prefix.pch"; sourceTree = "<group>"; };
+		A659E12A15F45678006C244C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		A659E12C15F45678006C244C /* FNAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FNAppDelegate.h; sourceTree = "<group>"; };
+		A659E12D15F45678006C244C /* FNAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FNAppDelegate.m; sourceTree = "<group>"; };
+		A659E13015F45678006C244C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		A659E13715F45678006C244C /* MeddoTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeddoTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A659E13815F45678006C244C /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		A659E13F15F45679006C244C /* MeddoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MeddoTests-Info.plist"; sourceTree = "<group>"; };
+		A659E14115F45679006C244C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A659E14315F45679006C244C /* MeddoTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeddoTests.h; sourceTree = "<group>"; };
+		A659E14415F45679006C244C /* MeddoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeddoTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A659E11315F45678006C244C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A659E11B15F45678006C244C /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A659E13315F45678006C244C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A659E13915F45678006C244C /* SenTestingKit.framework in Frameworks */,
+				A659E13A15F45679006C244C /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A659E10B15F45678006C244C = {
+			isa = PBXGroup;
+			children = (
+				A659E12015F45678006C244C /* Meddo */,
+				A659E13D15F45679006C244C /* MeddoTests */,
+				A659E11915F45678006C244C /* Frameworks */,
+				A659E11715F45678006C244C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A659E11715F45678006C244C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A659E11615F45678006C244C /* Meddo.app */,
+				A659E13715F45678006C244C /* MeddoTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A659E11915F45678006C244C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A659E11A15F45678006C244C /* Cocoa.framework */,
+				A659E13815F45678006C244C /* SenTestingKit.framework */,
+				A659E11C15F45678006C244C /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A659E11C15F45678006C244C /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A659E11D15F45678006C244C /* AppKit.framework */,
+				A659E11E15F45678006C244C /* CoreData.framework */,
+				A659E11F15F45678006C244C /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		A659E12015F45678006C244C /* Meddo */ = {
+			isa = PBXGroup;
+			children = (
+				A659E12C15F45678006C244C /* FNAppDelegate.h */,
+				A659E12D15F45678006C244C /* FNAppDelegate.m */,
+				A659E12F15F45678006C244C /* MainMenu.xib */,
+				A659E12115F45678006C244C /* Supporting Files */,
+			);
+			path = Meddo;
+			sourceTree = "<group>";
+		};
+		A659E12115F45678006C244C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A659E12215F45678006C244C /* Meddo-Info.plist */,
+				A659E12315F45678006C244C /* InfoPlist.strings */,
+				A659E12615F45678006C244C /* main.m */,
+				A659E12815F45678006C244C /* Meddo-Prefix.pch */,
+				A659E12915F45678006C244C /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A659E13D15F45679006C244C /* MeddoTests */ = {
+			isa = PBXGroup;
+			children = (
+				A659E14315F45679006C244C /* MeddoTests.h */,
+				A659E14415F45679006C244C /* MeddoTests.m */,
+				A659E13E15F45679006C244C /* Supporting Files */,
+			);
+			path = MeddoTests;
+			sourceTree = "<group>";
+		};
+		A659E13E15F45679006C244C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A659E13F15F45679006C244C /* MeddoTests-Info.plist */,
+				A659E14015F45679006C244C /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A659E11515F45678006C244C /* Meddo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A659E14815F45679006C244C /* Build configuration list for PBXNativeTarget "Meddo" */;
+			buildPhases = (
+				A659E11215F45678006C244C /* Sources */,
+				A659E11315F45678006C244C /* Frameworks */,
+				A659E11415F45678006C244C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Meddo;
+			productName = Meddo;
+			productReference = A659E11615F45678006C244C /* Meddo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A659E13615F45678006C244C /* MeddoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A659E14B15F45679006C244C /* Build configuration list for PBXNativeTarget "MeddoTests" */;
+			buildPhases = (
+				A659E13215F45678006C244C /* Sources */,
+				A659E13315F45678006C244C /* Frameworks */,
+				A659E13415F45678006C244C /* Resources */,
+				A659E13515F45678006C244C /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A659E13C15F45679006C244C /* PBXTargetDependency */,
+			);
+			name = MeddoTests;
+			productName = MeddoTests;
+			productReference = A659E13715F45678006C244C /* MeddoTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A659E10D15F45678006C244C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = FN;
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = "Fictitious Nonsense";
+			};
+			buildConfigurationList = A659E11015F45678006C244C /* Build configuration list for PBXProject "Meddo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A659E10B15F45678006C244C;
+			productRefGroup = A659E11715F45678006C244C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A659E11515F45678006C244C /* Meddo */,
+				A659E13615F45678006C244C /* MeddoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A659E11415F45678006C244C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A659E12515F45678006C244C /* InfoPlist.strings in Resources */,
+				A659E12B15F45678006C244C /* Credits.rtf in Resources */,
+				A659E13115F45678006C244C /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A659E13415F45678006C244C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A659E14215F45679006C244C /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A659E13515F45678006C244C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A659E11215F45678006C244C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A659E12715F45678006C244C /* main.m in Sources */,
+				A659E12E15F45678006C244C /* FNAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A659E13215F45678006C244C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A659E14515F45679006C244C /* MeddoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A659E13C15F45679006C244C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A659E11515F45678006C244C /* Meddo */;
+			targetProxy = A659E13B15F45679006C244C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A659E12315F45678006C244C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A659E12415F45678006C244C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A659E12915F45678006C244C /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A659E12A15F45678006C244C /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		A659E12F15F45678006C244C /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A659E13015F45678006C244C /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		A659E14015F45679006C244C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A659E14115F45679006C244C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A659E14615F45679006C244C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		A659E14715F45679006C244C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		A659E14915F45679006C244C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Meddo/Meddo-Prefix.pch";
+				INFOPLIST_FILE = "Meddo/Meddo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		A659E14A15F45679006C244C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Meddo/Meddo-Prefix.pch";
+				INFOPLIST_FILE = "Meddo/Meddo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		A659E14C15F45679006C244C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Meddo.app/Contents/MacOS/Meddo";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Meddo/Meddo-Prefix.pch";
+				INFOPLIST_FILE = "MeddoTests/MeddoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		A659E14D15F45679006C244C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Meddo.app/Contents/MacOS/Meddo";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Meddo/Meddo-Prefix.pch";
+				INFOPLIST_FILE = "MeddoTests/MeddoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A659E11015F45678006C244C /* Build configuration list for PBXProject "Meddo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A659E14615F45679006C244C /* Debug */,
+				A659E14715F45679006C244C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A659E14815F45679006C244C /* Build configuration list for PBXNativeTarget "Meddo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A659E14915F45679006C244C /* Debug */,
+				A659E14A15F45679006C244C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A659E14B15F45679006C244C /* Build configuration list for PBXNativeTarget "MeddoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A659E14C15F45679006C244C /* Debug */,
+				A659E14D15F45679006C244C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A659E10D15F45678006C244C /* Project object */;
+}
