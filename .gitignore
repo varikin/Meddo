@@ -2,10 +2,22 @@
 *.swp
 *.lock
 
-build/
+# Xcode
 
-# Discard personal user settings but keep default ones
+build/*
+
 *.pbxuser
+*.mode1v3
+*.mode2v3
 !default.pbxuser
+!default.mode1v3
+!default.mode2v3
 
+*.perspectivev3
+!default.perspectivev3
+
+*.xcworkspace
+!default.xcworkspace
 xcuserdata
+profile
+*.moved-aside
