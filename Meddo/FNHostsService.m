@@ -10,4 +10,25 @@
 
 @implementation FNHostsService
 
+@synthesize _hosts = hosts;
+
++ (FNHostsService *) sharedInstance {
+    static FNHostsService *sharedInstance = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedInstance = [[FNHostsService alloc] init];
+    });
+    return sharedInstance;
+}
+
+
+- (void) write {
+    
+}
+
+- (void) read {
+    NSArray *hostLines = [NSArray arrayWithContentsOfFile:kHostFile];
+    
+}
+
 @end
