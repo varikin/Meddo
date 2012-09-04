@@ -28,7 +28,20 @@
 
 - (void) read {
     NSArray *hostLines = [NSArray arrayWithContentsOfFile:kHostFile];
-    
+
+    for (NSString *hostLine in hostLines) {
+        NSString *trimmed = [hostLine stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        
+        FNHost *host = Nil;
+        if ([trimmed hasPrefix:@"#"]) {
+            // Is a comment, maybe commented out entry
+            
+        } else {
+            // Should be a valid entry
+            
+        }
+        
+    }
 }
 
 @end
