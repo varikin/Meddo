@@ -7,6 +7,7 @@
 //
 
 #import "MeddoAppDelegate.h"
+#import "FNHostsService.h"
 
 @implementation MeddoAppDelegate
 
@@ -25,6 +26,9 @@
     [statusItem setMenu:statusMenu];
     [statusItem setTitle:@"Meddo"];
     [statusItem setHighlightMode:YES];
+    
+    [[FNHostsService sharedInstance] read];
+    
 }
 
 @end
