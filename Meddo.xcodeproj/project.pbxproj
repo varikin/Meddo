@@ -20,6 +20,7 @@
 		A659E15015F4FC13006C244C /* FNHost.m in Sources */ = {isa = PBXBuildFile; fileRef = A659E14F15F4FC13006C244C /* FNHost.m */; };
 		A659E15315F50480006C244C /* FNMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = A659E15215F50480006C244C /* FNMenuController.m */; };
 		A659E15615F511CC006C244C /* FNHostsService.m in Sources */ = {isa = PBXBuildFile; fileRef = A659E15515F511CC006C244C /* FNHostsService.m */; };
+		A6AA7F4915F9B46B005E2A01 /* FNHostLine.m in Sources */ = {isa = PBXBuildFile; fileRef = A6AA7F4815F9B46B005E2A01 /* FNHostLine.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,8 @@
 		A659E15215F50480006C244C /* FNMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNMenuController.m; sourceTree = "<group>"; };
 		A659E15415F511CC006C244C /* FNHostsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNHostsService.h; sourceTree = "<group>"; };
 		A659E15515F511CC006C244C /* FNHostsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNHostsService.m; sourceTree = "<group>"; };
+		A6AA7F4715F9B46B005E2A01 /* FNHostLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNHostLine.h; sourceTree = "<group>"; };
+		A6AA7F4815F9B46B005E2A01 /* FNHostLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNHostLine.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,12 +126,11 @@
 		A659E12015F45678006C244C /* Meddo */ = {
 			isa = PBXGroup;
 			children = (
+				A6AA7F4515F9B416005E2A01 /* models */,
 				A659E12C15F45678006C244C /* MeddoAppDelegate.h */,
 				A659E12D15F45678006C244C /* MeddoAppDelegate.m */,
 				A659E12F15F45678006C244C /* MainMenu.xib */,
 				A659E12115F45678006C244C /* Supporting Files */,
-				A659E14E15F4FC13006C244C /* FNHost.h */,
-				A659E14F15F4FC13006C244C /* FNHost.m */,
 				A659E15115F50480006C244C /* FNMenuController.h */,
 				A659E15215F50480006C244C /* FNMenuController.m */,
 				A659E15415F511CC006C244C /* FNHostsService.h */,
@@ -166,6 +168,17 @@
 				A659E14015F45679006C244C /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A6AA7F4515F9B416005E2A01 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				A659E14E15F4FC13006C244C /* FNHost.h */,
+				A659E14F15F4FC13006C244C /* FNHost.m */,
+				A6AA7F4715F9B46B005E2A01 /* FNHostLine.h */,
+				A6AA7F4815F9B46B005E2A01 /* FNHostLine.m */,
+			);
+			name = models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,6 +295,7 @@
 				A659E15015F4FC13006C244C /* FNHost.m in Sources */,
 				A659E15315F50480006C244C /* FNMenuController.m in Sources */,
 				A659E15615F511CC006C244C /* FNHostsService.m in Sources */,
+				A6AA7F4915F9B46B005E2A01 /* FNHostLine.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,6 +475,7 @@
 				A659E14A15F45679006C244C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A659E14B15F45679006C244C /* Build configuration list for PBXNativeTarget "MeddoTests" */ = {
 			isa = XCConfigurationList;
@@ -469,6 +484,7 @@
 				A659E14D15F45679006C244C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

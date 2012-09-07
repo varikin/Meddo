@@ -10,9 +10,8 @@
 
 @interface FNHost : NSObject
 
-@property (nonatomic, retain) NSString *_comment;
-@property (nonatomic, retain) NSString *_address;
-@property (nonatomic, retain) NSMutableArray *_hostnames;
-@property (nonatomic) BOOL _enabled;
+@property (nonatomic, retain) NSString *name;
+@property (nonatomic, retain) NSMutableArray *comments;
+@property (nonatomic, retain) NSMutableArray *hostlines;
 
 @end

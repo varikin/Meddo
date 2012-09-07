@@ -10,7 +10,7 @@
 
 @interface FNMenuController : NSObject
 
-@property (nonatomic, retain) NSMutableArray *_hosts;
+@property (nonatomic, retain) NSMutableArray *hosts;
 
 - (id) initWithHosts:(NSMutableArray *)hosts;
 

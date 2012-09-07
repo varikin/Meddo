@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "FNHost.h"
 
 #define kHostFile @"/private/etc/hosts"
 
@@ -20,7 +19,7 @@
 @interface FNHostsService : NSObject
 
 
-@property (retain) NSMutableArray *_hosts;
+@property (retain) NSMutableArray *hosts;
 
 /*
  * Returns the Hosts Serivce singleton

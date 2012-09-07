@@ -7,19 +7,26 @@
 //
 
 #import "FNHostsService.h"
+#import "FNHost.h"
 #include <arpa/inet.h>
-
 
 @interface FNHostsService()
 
+typedef enum {
+    comment,
+    hostline,
+    blank
+} LineType;
+
 - (NSArray *) tokenize:(NSString *)line;
 - (BOOL) isIPAddress:(NSString *)string;
+- (LineType) getLineType:(NSArray *)tokens;
 
 @end
 
 @implementation FNHostsService
 
-@synthesize _hosts = hosts;
+@synthesize hosts;
 
 + (FNHostsService *) sharedInstance {
     static FNHostsService *sharedInstance = nil;
@@ -44,30 +51,37 @@
         NSLog(@"Some freaking error: %@", error);
         return;
     }
-    
 
     NSArray *lines = [allTheLines componentsSeparatedByCharactersInSet:
                       [NSCharacterSet newlineCharacterSet]];
     
+    
+    [self setHosts:[NSMutableArray arrayWithCapacity:[lines count]]];
+    FNHost *host = [[FNHost alloc] init];
+    LineType lastType = blank;
+    LineType currentType;
+    
     for (NSString *line in lines) {
         NSArray *tokens = [self tokenize:line];
-        
-        // If the first token starts with a #, it is either:
-        // 1. A comment
-        // 2. A commented out host entry
-        
-        
-        if ([tokens count] > 1) {
-            NSString *first = [tokens objectAtIndex:0];
-            if ([first characterAtIndex:0] == '#') {
-                NSString *second = [tokens objectAtIndex:1];
-                if ([self isIPAddress:second]) {
-                    
+        currentType = [self getLineType:tokens];
+        switch (currentType) {
+            case blank:
+                [self.hosts addObject:host];
+                host = [[FNHost alloc] init];
+                break;
+            case comment:
+                if (lastType == hostline) {
+                    [self.hosts addObject:host];
+                    host = [[FNHost alloc] init];
                 }
-                
-            }
+                [[host comments] addObject:tokens];
+                break;
+            case hostline:
+                [[host hostlines] addObject:tokens];
         }
+        
     }
+    [self.hosts addObject:host];
 }
 
 - (NSArray *) tokenize:(NSString *)line {
@@ -131,6 +145,32 @@
     }
     
     return success == 1;
+}
+
+- (LineType) getLineType:(NSArray *)tokens {
+    if ([tokens count] == 0) {
+        return blank;
+    }
+    
+    NSString *first = [tokens objectAtIndex:0];
+    if ([self isIPAddress:first]) {
+        return hostline;
+    }
+    
+    // The complicated one, either a comment or disabled hostline
+    if ([first characterAtIndex:0] == '#') {
+        if ([tokens count] > 1) {
+            NSString *second = [tokens objectAtIndex:1];
+            if ([self isIPAddress:second]) {
+                return hostline;
+            }
+        }
+        return comment; 
+    }
+    
+    // WTF is this?! Not a comment, not a host line
+    // Lets ignore it as a blank line
+    return blank;
 }
 
 @end

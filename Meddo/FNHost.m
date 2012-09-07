@@ -10,9 +10,8 @@
 
 @implementation FNHost
 
-@synthesize _comment = comment;
-@synthesize _address = address;
-@synthesize _hostnames = hostnames;
-@synthesize _enabled = enabled;
+@synthesize name;
+@synthesize comments;
+@synthesize hostlines;
 
 @end

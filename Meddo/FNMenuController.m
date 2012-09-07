@@ -10,7 +10,7 @@
 
 @implementation FNMenuController
 
-@synthesize _hosts = hosts;
+@synthesize hosts;
 
 
 

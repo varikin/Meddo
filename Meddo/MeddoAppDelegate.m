@@ -11,9 +11,9 @@
 
 @implementation MeddoAppDelegate
 
-@synthesize _window = window;
-@synthesize _statusMenu = statusMenu;
-@synthesize _statusItem = statusItem;
+@synthesize window;
+@synthesize statusMenu;
+@synthesize statusItem;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {

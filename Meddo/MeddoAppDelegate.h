@@ -10,10 +10,8 @@
 
 @interface MeddoAppDelegate : NSObject <NSApplicationDelegate>
 
-@property (assign) IBOutlet NSWindow *_window;
-@property (nonatomic, readonly) IBOutlet NSMenu *_statusMenu;
-@property (nonatomic, readonly) NSStatusItem *_statusItem;
-
-
+@property (assign) IBOutlet NSWindow *window;
+@property (nonatomic, readonly) IBOutlet NSMenu *statusMenu;
+@property (nonatomic, readonly) NSStatusItem *statusItem;
 
 @end
