@@ -7,11 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "FNHostLine.h"
 
 @interface FNHost : NSObject
 
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) NSMutableArray *comments;
 @property (nonatomic, retain) NSMutableArray *hostlines;
+
+- (BOOL) isEmpty;
+- (void) addComment:(NSString *) comment;
+- (void) addHostline:(FNHostLine *) hostline;
 
 @end

@@ -7,8 +7,6 @@
 //
 
 #import "FNHostsService.h"
-#import "FNHost.h"
-#include <arpa/inet.h>
 
 @interface FNHostsService()
 
@@ -19,8 +17,10 @@ typedef enum {
 } LineType;
 
 - (NSArray *) tokenize:(NSString *)line;
+- (FNHostLine *) parseHostLine:(NSArray *)tokens;
 - (BOOL) isIPAddress:(NSString *)string;
 - (LineType) getLineType:(NSArray *)tokens;
+- (FNHost *) addHost:(FNHost *)host;
 
 @end
 
@@ -28,6 +28,7 @@ typedef enum {
 
 @synthesize hosts;
 
+#pragma mark -
 + (FNHostsService *) sharedInstance {
     static FNHostsService *sharedInstance = nil;
     static dispatch_once_t onceToken;
@@ -41,6 +42,8 @@ typedef enum {
 - (void) write {
     // TODO: Implement!
 }
+
+#pragma mark - Parse methods
 
 - (void) read {
     NSError *error;
@@ -66,22 +69,20 @@ typedef enum {
         currentType = [self getLineType:tokens];
         switch (currentType) {
             case blank:
-                [self.hosts addObject:host];
-                host = [[FNHost alloc] init];
+                host = [self addHost:host];
                 break;
             case comment:
                 if (lastType == hostline) {
-                    [self.hosts addObject:host];
-                    host = [[FNHost alloc] init];
+                    host = [self addHost:host];
                 }
-                [[host comments] addObject:tokens];
+                [host addComment:line];
                 break;
             case hostline:
-                [[host hostlines] addObject:tokens];
+                [host addHostline:[self parseHostLine:tokens]];
         }
         
     }
-    [self.hosts addObject:host];
+    [self addHost:host];
 }
 
 - (NSArray *) tokenize:(NSString *)line {
@@ -127,6 +128,12 @@ typedef enum {
     return tokens;
 }
 
+- (FNHostLine *) parseHostLine:(NSArray *)tokens {
+    return nil;
+}
+
+#pragma mark - Helper methods
+
 - (BOOL) isIPAddress:(NSString *)string {
     
     // Using the awesome ARPANET!
@@ -147,6 +154,7 @@ typedef enum {
     return success == 1;
 }
 
+// Helper to check the 
 - (LineType) getLineType:(NSArray *)tokens {
     if ([tokens count] == 0) {
         return blank;
@@ -171,6 +179,17 @@ typedef enum {
     // WTF is this?! Not a comment, not a host line
     // Lets ignore it as a blank line
     return blank;
+}
+
+// Helper to add the host to the list if not empty
+// Returns a new (or current empty) host
+- (FNHost *) addHost:(FNHost *)host {
+    if (![host isEmpty]) {
+        [self.hosts addObject:host];
+        host = [[FNHost alloc] init];
+    }
+    return host;
+    
 }
 
 @end

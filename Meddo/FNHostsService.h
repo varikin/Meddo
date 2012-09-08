@@ -7,6 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#include <arpa/inet.h>
+#import "FNHost.h"
+#import "FNHostLine.h"
 
 #define kHostFile @"/private/etc/hosts"
 
