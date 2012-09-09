@@ -1974,11 +1974,11 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
-						<string key="label">statusMenu</string>
+						<string key="label">menu</string>
 						<reference key="source" ref="976324537"/>
 						<reference key="destination" ref="421433219"/>
 					</object>
-					<int key="connectionID">542</int>
+					<int key="connectionID">543</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -3132,7 +3132,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">542</int>
+			<int key="maxID">543</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>

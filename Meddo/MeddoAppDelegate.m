@@ -12,8 +12,8 @@
 @implementation MeddoAppDelegate
 
 @synthesize window;
-@synthesize statusMenu;
-@synthesize statusItem;
+@synthesize menu;
+@synthesize menuController;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
@@ -21,14 +21,7 @@
 }
 
 - (void) awakeFromNib {
-    NSStatusBar *systemStatusBar = [NSStatusBar systemStatusBar];
-    statusItem = [systemStatusBar statusItemWithLength:NSVariableStatusItemLength];
-    [statusItem setMenu:statusMenu];
-    [statusItem setTitle:@"Meddo"];
-    [statusItem setHighlightMode:YES];
-    
-    [[FNHostsService sharedInstance] read];
-    
+    [self setMenuController:[[FNMenuController alloc] initWithMenu:menu]];
 }
 
 @end

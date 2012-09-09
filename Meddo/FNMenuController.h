@@ -7,11 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "FNHostsService.h"
+#import "FNHost.h"
 
 @interface FNMenuController : NSObject
 
-@property (nonatomic, retain) NSMutableArray *hosts;
+@property (nonatomic, retain) NSMenu *statusMenu;
+@property (nonatomic, retain) NSStatusItem *statusItem;
+@property (nonatomic, retain) NSArray *hosts;
 
-- (id) initWithHosts:(NSMutableArray *)hosts;
+- (id) initWithMenu:(NSMenu *) menu;
+- (void) refreshMenu;
 
 @end

@@ -7,11 +7,12 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "FNMenuController.h"
 
 @interface MeddoAppDelegate : NSObject <NSApplicationDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
-@property (nonatomic, readonly) IBOutlet NSMenu *statusMenu;
-@property (nonatomic, readonly) NSStatusItem *statusItem;
+@property (nonatomic, retain) IBOutlet NSMenu *menu;
+@property (nonatomic, retain) FNMenuController *menuController;
 
 @end
