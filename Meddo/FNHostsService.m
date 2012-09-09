@@ -11,22 +11,22 @@
 @interface FNHostsService()
 
 typedef enum {
-    comment,
-    hostline,
-    blank
+    NoLine,
+    CommentLine,
+    HostLine,
+    BlankLine
 } LineType;
 
 - (NSArray *) tokenize:(NSString *)line;
 - (FNHostLine *) parseHostLine:(NSArray *)tokens;
-- (BOOL) isIPAddress:(NSString *)string;
 - (LineType) getLineType:(NSArray *)tokens;
-- (FNHost *) addHost:(FNHost *)host;
+- (BOOL) isIPAddress:(NSString *)token;
+- (BOOL) isComment:(NSString *)token;
+- (FNHost *) addHost:(FNHost *)host toArray:(NSMutableArray *)hosts;
 
 @end
 
 @implementation FNHostsService
-
-@synthesize hosts;
 
 #pragma mark -
 + (FNHostsService *) sharedInstance {
@@ -39,50 +39,50 @@ typedef enum {
 }
 
 
-- (void) write {
+- (void) write:(NSString *)hosts {
     // TODO: Implement!
 }
 
 #pragma mark - Parse methods
 
-- (void) read {
+- (NSArray *) read {
     NSError *error;
     NSString *allTheLines = [NSString stringWithContentsOfFile:kHostFile
                                                       encoding:NSUTF8StringEncoding
                                                          error:&error];
     if (error != nil) {
         NSLog(@"Some freaking error: %@", error);
-        return;
+        return [NSArray array];
     }
 
     NSArray *lines = [allTheLines componentsSeparatedByCharactersInSet:
                       [NSCharacterSet newlineCharacterSet]];
     
     
-    [self setHosts:[NSMutableArray arrayWithCapacity:[lines count]]];
+    NSMutableArray *hosts = [NSMutableArray arrayWithCapacity:[lines count]];
     FNHost *host = [[FNHost alloc] init];
-    LineType lastType = blank;
+    LineType previousType = NoLine;
     LineType currentType;
     
     for (NSString *line in lines) {
         NSArray *tokens = [self tokenize:line];
         currentType = [self getLineType:tokens];
-        switch (currentType) {
-            case blank:
-                host = [self addHost:host];
-                break;
-            case comment:
-                if (lastType == hostline) {
-                    host = [self addHost:host];
-                }
-                [host addComment:line];
-                break;
-            case hostline:
-                [host addHostline:[self parseHostLine:tokens]];
+        if (currentType == BlankLine) {
+            host = [self addHost:host toArray:hosts];
+        } else if (currentType == CommentLine) {
+            if (previousType == HostLine) {
+                host = [self addHost:host toArray:hosts];
+            }
+            [host addComment:line];
+        } else if (currentType == HostLine) {
+            FNHostLine *hostline = [self parseHostLine:tokens];
+            if (hostline != nil) {
+                [host addHostline:hostline];
+            }
         }
-        
     }
-    [self addHost:host];
+    [self addHost:host toArray:hosts];
+    return [NSArray arrayWithArray:hosts];
 }
 
 - (NSArray *) tokenize:(NSString *)line {
@@ -107,7 +107,7 @@ typedef enum {
     
     // Separate first token into two if it starts with a octothrope
     NSString *first = [tokens objectAtIndex:0];
-    if ([first length] > 1 && [first characterAtIndex:0] == '#') {
+    if ([first length] > 1 && [self isComment:first]) {
         // Create the new first and second tokens
         NSString *second = [first substringFromIndex:1];
         first = @"#";
@@ -129,7 +129,34 @@ typedef enum {
 }
 
 - (FNHostLine *) parseHostLine:(NSArray *)tokens {
-    return nil;
+    FNHostLine *hostline = [[FNHostLine alloc] init];
+
+    int i = 0;
+    NSString *token = [tokens objectAtIndex:i];
+    
+    // If the first token is a comment, disable the hostline
+    // and fetch the next token
+    if ([self isComment:token]) {
+        [hostline setEnabled:NO];
+        i++;
+        token = [tokens objectAtIndex:i];
+    } else {
+        [hostline setEnabled:YES];
+    }
+    
+    // Could be first token still or 2nd, doesn't matter
+    // It needs to be an IP address
+    // Afterwards, advance i to point at the next token
+    if ([self isIPAddress:token]) {
+        [hostline setIp:token];
+        i++;
+    } else {
+        return nil;
+    }
+    
+    NSRange range = NSMakeRange(i, [tokens count] - i);
+    [hostline setHostnames:[tokens subarrayWithRange:range]];
+    return hostline;
 }
 
 #pragma mark - Helper methods
@@ -154,42 +181,48 @@ typedef enum {
     return success == 1;
 }
 
-// Helper to check the 
+- (BOOL) isComment:(NSString *)token {
+    if ([token characterAtIndex:0] == '#') {
+        return YES;
+    }
+    return NO;
+}
+
+// Helper to check the type of the line
 - (LineType) getLineType:(NSArray *)tokens {
     if ([tokens count] == 0) {
-        return blank;
+        return BlankLine;
     }
     
     NSString *first = [tokens objectAtIndex:0];
     if ([self isIPAddress:first]) {
-        return hostline;
+        return HostLine;
     }
     
     // The complicated one, either a comment or disabled hostline
-    if ([first characterAtIndex:0] == '#') {
+    if ([self isComment:first]) {
         if ([tokens count] > 1) {
             NSString *second = [tokens objectAtIndex:1];
             if ([self isIPAddress:second]) {
-                return hostline;
+                return HostLine;
             }
         }
-        return comment; 
+        return CommentLine; 
     }
     
     // WTF is this?! Not a comment, not a host line
     // Lets ignore it as a blank line
-    return blank;
+    return BlankLine;
 }
 
 // Helper to add the host to the list if not empty
 // Returns a new (or current empty) host
-- (FNHost *) addHost:(FNHost *)host {
+- (FNHost *) addHost:(FNHost *)host toArray:(NSMutableArray *)hosts {
     if (![host isEmpty]) {
-        [self.hosts addObject:host];
+        [hosts addObject:host];
         host = [[FNHost alloc] init];
     }
     return host;
-    
 }
 
 @end

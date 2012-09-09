@@ -21,24 +21,20 @@
  */
 @interface FNHostsService : NSObject
 
-
-@property (retain) NSMutableArray *hosts;
-
 /*
  * Returns the Hosts Serivce singleton
  */
 + (FNHostsService *) sharedInstance;
 
-
 /*
- * Writes the current hosts to /etc/hosts
+ * Writes an array of FNHosts to /etc/hosts
  * Since /etc/hosts/ is owned by root, prompts the user for administrator access via authopen
  */
-- (void) write;
+- (void) write:(NSArray *)hosts;
 
 /* 
  * Reads the /etc/hosts file into memory
  */
-- (void) read;
+- (NSArray *) read;
 
 @end
