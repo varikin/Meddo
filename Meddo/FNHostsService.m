@@ -22,7 +22,7 @@ typedef enum {
 - (LineType) getLineType:(NSArray *)tokens;
 - (BOOL) isIPAddress:(NSString *)token;
 - (BOOL) isComment:(NSString *)token;
-- (FNHost *) addHost:(FNHost *)host toArray:(NSMutableArray *)hosts;
+- (FNHost *) saveHost:(FNHost *)host toArray:(NSMutableArray *)hosts;
 
 @end
 
@@ -68,10 +68,10 @@ typedef enum {
         NSArray *tokens = [self tokenize:line];
         currentType = [self getLineType:tokens];
         if (currentType == BlankLine) {
-            host = [self addHost:host toArray:hosts];
+            host = [self saveHost:host toArray:hosts];
         } else if (currentType == CommentLine) {
             if (previousType == HostLine) {
-                host = [self addHost:host toArray:hosts];
+                host = [self saveHost:host toArray:hosts];
             }
             [host addComment:line];
         } else if (currentType == HostLine) {
@@ -81,7 +81,7 @@ typedef enum {
             }
         }
     }
-    [self addHost:host toArray:hosts];
+    [self saveHost:host toArray:hosts];
     return [NSArray arrayWithArray:hosts];
 }
 
@@ -217,8 +217,11 @@ typedef enum {
 
 // Helper to add the host to the list if not empty
 // Returns a new (or current empty) host
-- (FNHost *) addHost:(FNHost *)host toArray:(NSMutableArray *)hosts {
+- (FNHost *) saveHost:(FNHost *)host toArray:(NSMutableArray *)hosts {
     if (![host isEmpty]) {
+        
+        
+        
         [hosts addObject:host];
         host = [[FNHost alloc] init];
     }
