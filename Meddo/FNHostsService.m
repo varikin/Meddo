@@ -22,6 +22,7 @@ typedef enum {
 - (LineType) getLineType:(NSArray *)tokens;
 - (BOOL) isIPAddress:(NSString *)token;
 - (BOOL) isComment:(NSString *)token;
+- (NSString *) guessNameFromHost:(FNHost *)host;
 - (FNHost *) saveHost:(FNHost *)host toArray:(NSMutableArray *)hosts;
 
 @end
@@ -215,13 +216,33 @@ typedef enum {
     return BlankLine;
 }
 
+// Tries to set a name for a host based on either:
+// 1) A comment
+// 2) The first host name
+- (NSString *) guessNameFromHost:(FNHost *)host {
+    NSString *name;
+    for (NSString * comment in [host comments]) {
+        NSString *cleaned = [[comment stringByReplacingOccurrencesOfString:@"#" withString:@""]
+                             stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        if ([cleaned length] > 0) {
+            name = cleaned;
+            break;
+        }
+    }
+    
+    if (name == nil) {
+        FNHostLine *hostline = [[host hostlines] objectAtIndex:0];
+        name = [[hostline hostnames] objectAtIndex:0];
+    }
+    
+    return name;
+}
+
 // Helper to add the host to the list if not empty
 // Returns a new (or current empty) host
 - (FNHost *) saveHost:(FNHost *)host toArray:(NSMutableArray *)hosts {
     if (![host isEmpty]) {
-        
-        
-        
+        [host setName:[self guessNameFromHost:host]];
         [hosts addObject:host];
         host = [[FNHost alloc] init];
     }

@@ -18,7 +18,6 @@
     self = [super init];
     if (self) {
         [self setStatusMenu:menu];
-        
         NSStatusBar *systemStatusBar = [NSStatusBar systemStatusBar];
         statusItem = [systemStatusBar statusItemWithLength:NSVariableStatusItemLength];
         [statusItem setMenu:statusMenu];
@@ -32,9 +31,10 @@
 - (void) refreshMenu {
     [self setHosts:[[FNHostsService sharedInstance] read]];
     for (FNHost *host in self.hosts) {
-        NSString *title = [[host comments] objectAtIndex:0];
+        NSString *title = [host name];
         NSMenuItem *menuItem = [[NSMenuItem alloc] initWithTitle:title action:NULL keyEquivalent:@""];
         [[self statusMenu] addItem:menuItem];
+        
     }
 }
 
