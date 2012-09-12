@@ -43,4 +43,34 @@
     }
 }
 
+- (HostStatus) status {
+    unsigned int enabledCount = 0;
+    for (FNHostLine *hostline in [self hostlines]) {
+        if ([hostline enabled]) {
+            enabledCount++;
+        }
+    }
+    unsigned long totalCount = [[self hostlines] count];
+    if (enabledCount == 0) {
+        return HostDisabled;
+    } else if (enabledCount < totalCount) {
+        return HostPartial;
+    } else {
+        return HostEnabled;
+    }
+}
+
+- (NSString *) shortDescription {
+    NSString *result = [self name];
+    if ([[self hostlines] count] > 0) {
+        FNHostLine *line = [hostlines objectAtIndex:0];
+        if ([[line hostnames] count] > 0) {
+            result = [NSString stringWithFormat:@"%@ %@", [line ip], [[line hostnames] objectAtIndex:0]];
+        } else {
+            result = [line ip];
+        }
+    }
+    return result;
+}
+
 @end

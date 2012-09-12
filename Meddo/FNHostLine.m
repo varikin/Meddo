@@ -14,4 +14,9 @@
 @synthesize hostnames;
 @synthesize enabled;
 
+- (NSString *) description {
+    return [NSString stringWithFormat:@"%@%@ %@",
+            (enabled ? @"" : @"#"), self.ip, [self.hostnames componentsJoinedByString:@" "]];
+}
+
 @end

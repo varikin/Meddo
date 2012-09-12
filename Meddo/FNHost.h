@@ -11,6 +11,12 @@
 
 @interface FNHost : NSObject
 
+typedef enum {
+    HostEnabled,
+    HostPartial,
+    HostDisabled
+} HostStatus;
+
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) NSMutableArray *comments;
 @property (nonatomic, retain) NSMutableArray *hostlines;
@@ -18,5 +24,7 @@
 - (BOOL) isEmpty;
 - (void) addComment:(NSString *) comment;
 - (void) addHostline:(FNHostLine *) hostline;
+- (HostStatus) status;
+- (NSString *) shortDescription;
 
 @end

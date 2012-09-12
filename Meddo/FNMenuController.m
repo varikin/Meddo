@@ -8,6 +8,13 @@
 
 #import "FNMenuController.h"
 
+@interface FNMenuController()
+
+- (IBAction)handleMenuItem:(id)sender;
+- (NSString *) formatName:(FNHost *)host;
+
+@end
+
 @implementation FNMenuController
 
 @synthesize statusMenu;
@@ -31,13 +38,41 @@
 - (void) refreshMenu {
     [self setHosts:[[FNHostsService sharedInstance] read]];
     for (FNHost *host in self.hosts) {
-        NSString *title = [host name];
-        NSMenuItem *menuItem = [[NSMenuItem alloc] initWithTitle:title action:NULL keyEquivalent:@""];
+        NSMenuItem *menuItem = [[NSMenuItem alloc] initWithTitle:[self formatName:host]
+                                                          action:@selector(handleMenuItem:)
+                                                   keyEquivalent:@""];
+        [menuItem setRepresentedObject:host];
+        [menuItem setTarget:self];
+        [menuItem setToolTip:[host shortDescription]];
+        [menuItem setEnabled:YES];
+
         [[self statusMenu] addItem:menuItem];
-        
     }
 }
 
+- (IBAction) handleMenuItem:(id)sender {
+    NSLog(@"Got an item");
+    
+}
+
+- (NSString *) formatName:(FNHost *)host {
+    NSString *status;
+    switch ([host status]) {
+        case HostDisabled:
+            status = @"x";
+            break;
+        case HostEnabled:
+            status = @"*";
+            break;
+        case HostPartial:
+            status = @"-";
+            break;
+        default:
+            status = @"?";
+            break;
+    }
+    return [NSString stringWithFormat:@"%@ %@", status, [host name]];
+}
 
 
 @end
