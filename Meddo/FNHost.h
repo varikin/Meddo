@@ -24,6 +24,7 @@ typedef enum {
 - (BOOL) isEmpty;
 - (void) addComment:(NSString *) comment;
 - (void) addHostline:(FNHostLine *) hostline;
+- (void) setEnabled:(BOOL) enabled;
 - (HostStatus) status;
 - (NSString *) shortDescription;
 

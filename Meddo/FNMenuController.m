@@ -25,6 +25,7 @@
     self = [super init];
     if (self) {
         [self setStatusMenu:menu];
+        hostsService = [FNHostsService sharedInstance];
         NSStatusBar *systemStatusBar = [NSStatusBar systemStatusBar];
         statusItem = [systemStatusBar statusItemWithLength:NSVariableStatusItemLength];
         [statusItem setMenu:statusMenu];
@@ -36,7 +37,7 @@
 }
 
 - (void) refreshMenu {
-    [self setHosts:[[FNHostsService sharedInstance] read]];
+    [self setHosts:[hostsService read]];
     for (FNHost *host in self.hosts) {
         NSMenuItem *menuItem = [[NSMenuItem alloc] initWithTitle:[self formatName:host]
                                                           action:@selector(handleMenuItem:)
@@ -51,8 +52,13 @@
 }
 
 - (IBAction) handleMenuItem:(id)sender {
-    NSLog(@"Got an item");
-    
+    if ([sender isKindOfClass:[NSMenuItem class]]) {
+        FNHost *host = [sender representedObject];
+        BOOL enabled = [host status] == HostEnabled;
+        [host setEnabled:!enabled];
+        [hostsService write:hosts];
+        [sender setTitle:[self formatName:host]];
+    }
 }
 
 - (NSString *) formatName:(FNHost *)host {

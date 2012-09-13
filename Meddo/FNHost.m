@@ -43,6 +43,12 @@
     }
 }
 
+- (void) setEnabled:(BOOL)enabled {
+    for (FNHostLine *hostline in hostlines) {
+        [hostline setEnabled:enabled];
+    }
+}
+
 - (HostStatus) status {
     unsigned int enabledCount = 0;
     for (FNHostLine *hostline in [self hostlines]) {
