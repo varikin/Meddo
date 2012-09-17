@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleIdentifier</key>
+	<string>com.fictitiousnonsense.MeddoHelper</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>MeddoHelper</string>
+	<key>CFBundleVersion</key>
+	<string>1.2</string>
+	<key>SMAuthorizedClients</key>
+	<array>
+		<string>identifier com.fictitiousnonsense.Meddo and certificate leaf[subject.CN] = &quot;Mac Developer: John Shimek (K44LH44GRC)&quot;</string>
+	</array>
+</dict>
+</plist>

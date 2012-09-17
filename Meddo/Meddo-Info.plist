@@ -34,5 +34,10 @@
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>SMPrivilegedExecutables</key>
+	<dict>
+		<key>com.fictitiousnonsense.MeddoHelper</key>
+		<string>identifier com.fictitiousnonsense.MeddoHelper and certificate leaf[subject.CN] = &quot;Mac Developer: John Shimek (K44LH44GRC)&quot;</string>
+	</dict>
 </dict>
 </plist>

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A6544886160419FC0095DFB2 /* FNSecurityService.m in Sources */ = {isa = PBXBuildFile; fileRef = A6544885160419FC0095DFB2 /* FNSecurityService.m */; };
+		A654488916041C4E0095DFB2 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A654488816041C4E0095DFB2 /* ServiceManagement.framework */; };
 		A659E11B15F45678006C244C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A659E11A15F45678006C244C /* Cocoa.framework */; };
 		A659E12515F45678006C244C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A659E12315F45678006C244C /* InfoPlist.strings */; };
 		A659E12715F45678006C244C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A659E12615F45678006C244C /* main.m */; };
@@ -20,7 +22,10 @@
 		A659E15015F4FC13006C244C /* FNHost.m in Sources */ = {isa = PBXBuildFile; fileRef = A659E14F15F4FC13006C244C /* FNHost.m */; };
 		A659E15315F50480006C244C /* FNMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = A659E15215F50480006C244C /* FNMenuController.m */; };
 		A659E15615F511CC006C244C /* FNHostsService.m in Sources */ = {isa = PBXBuildFile; fileRef = A659E15515F511CC006C244C /* FNHostsService.m */; };
+		A665F0BE160182A3009E5EB3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A665F0BD160182A3009E5EB3 /* Security.framework */; };
+		A6989F9A1606CD6100E3341B /* MeddoHelper.c in Sources */ = {isa = PBXBuildFile; fileRef = A6989F991606CD6100E3341B /* MeddoHelper.c */; };
 		A6AA7F4915F9B46B005E2A01 /* FNHostLine.m in Sources */ = {isa = PBXBuildFile; fileRef = A6AA7F4815F9B46B005E2A01 /* FNHostLine.m */; };
+		A6F76F0F1606D24700EFAC46 /* com.fictitiousnonsense.MeddoHelper in CopyFiles */ = {isa = PBXBuildFile; fileRef = A6989F961606CD6100E3341B /* com.fictitiousnonsense.MeddoHelper */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,9 +36,32 @@
 			remoteGlobalIDString = A659E11515F45678006C244C;
 			remoteInfo = Meddo;
 		};
+		A6F76F0A1606D09F00EFAC46 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A659E10D15F45678006C244C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A6989F951606CD6100E3341B;
+			remoteInfo = MeddoHelper;
+		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		A6989F701604C7FF00E3341B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/LaunchServices;
+			dstSubfolderSpec = 1;
+			files = (
+				A6F76F0F1606D24700EFAC46 /* com.fictitiousnonsense.MeddoHelper in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		A6544884160419FC0095DFB2 /* FNSecurityService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNSecurityService.h; sourceTree = "<group>"; };
+		A6544885160419FC0095DFB2 /* FNSecurityService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNSecurityService.m; sourceTree = "<group>"; };
+		A654488816041C4E0095DFB2 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/ServiceManagement.framework; sourceTree = DEVELOPER_DIR; };
 		A659E11615F45678006C244C /* Meddo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meddo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A659E11A15F45678006C244C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		A659E11D15F45678006C244C /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -53,14 +81,20 @@
 		A659E14115F45679006C244C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A659E14315F45679006C244C /* MeddoTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeddoTests.h; sourceTree = "<group>"; };
 		A659E14415F45679006C244C /* MeddoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeddoTests.m; sourceTree = "<group>"; };
-		A659E14E15F4FC13006C244C /* FNHost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNHost.h; sourceTree = "<group>"; };
-		A659E14F15F4FC13006C244C /* FNHost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNHost.m; sourceTree = "<group>"; };
+		A659E14E15F4FC13006C244C /* FNHost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNHost.h; path = Models/FNHost.h; sourceTree = "<group>"; };
+		A659E14F15F4FC13006C244C /* FNHost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNHost.m; path = Models/FNHost.m; sourceTree = "<group>"; };
 		A659E15115F50480006C244C /* FNMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNMenuController.h; sourceTree = "<group>"; };
 		A659E15215F50480006C244C /* FNMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNMenuController.m; sourceTree = "<group>"; };
 		A659E15415F511CC006C244C /* FNHostsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNHostsService.h; sourceTree = "<group>"; };
 		A659E15515F511CC006C244C /* FNHostsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNHostsService.m; sourceTree = "<group>"; };
-		A6AA7F4715F9B46B005E2A01 /* FNHostLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNHostLine.h; sourceTree = "<group>"; };
-		A6AA7F4815F9B46B005E2A01 /* FNHostLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNHostLine.m; sourceTree = "<group>"; };
+		A665F0BA16017EA3009E5EB3 /* SecurityFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SecurityFoundation.framework; path = System/Library/Frameworks/SecurityFoundation.framework; sourceTree = SDKROOT; };
+		A665F0BD160182A3009E5EB3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		A6989F961606CD6100E3341B /* com.fictitiousnonsense.MeddoHelper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = com.fictitiousnonsense.MeddoHelper; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6989F991606CD6100E3341B /* MeddoHelper.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = MeddoHelper.c; sourceTree = "<group>"; };
+		A6989FA01606CDA800E3341B /* MeddoHelper-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MeddoHelper-Info.plist"; sourceTree = "<group>"; };
+		A6989FA11606CDA900E3341B /* MeddoHelper-Launchd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MeddoHelper-Launchd.plist"; sourceTree = "<group>"; };
+		A6AA7F4715F9B46B005E2A01 /* FNHostLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNHostLine.h; path = Models/FNHostLine.h; sourceTree = "<group>"; };
+		A6AA7F4815F9B46B005E2A01 /* FNHostLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNHostLine.m; path = Models/FNHostLine.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +102,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A654488916041C4E0095DFB2 /* ServiceManagement.framework in Frameworks */,
+				A665F0BE160182A3009E5EB3 /* Security.framework in Frameworks */,
 				A659E11B15F45678006C244C /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -81,14 +117,41 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A6989F931606CD6100E3341B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A65448831604198F0095DFB2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A659E12F15F45678006C244C /* MainMenu.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		A654488716041A090095DFB2 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A659E15415F511CC006C244C /* FNHostsService.h */,
+				A659E15515F511CC006C244C /* FNHostsService.m */,
+				A6544884160419FC0095DFB2 /* FNSecurityService.h */,
+				A6544885160419FC0095DFB2 /* FNSecurityService.m */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
 		A659E10B15F45678006C244C = {
 			isa = PBXGroup;
 			children = (
 				A659E12015F45678006C244C /* Meddo */,
 				A659E13D15F45679006C244C /* MeddoTests */,
+				A6989F981606CD6100E3341B /* MeddoHelper */,
 				A659E11915F45678006C244C /* Frameworks */,
 				A659E11715F45678006C244C /* Products */,
 			);
@@ -99,6 +162,7 @@
 			children = (
 				A659E11615F45678006C244C /* Meddo.app */,
 				A659E13715F45678006C244C /* MeddoTests.octest */,
+				A6989F961606CD6100E3341B /* com.fictitiousnonsense.MeddoHelper */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -106,35 +170,29 @@
 		A659E11915F45678006C244C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A659E11A15F45678006C244C /* Cocoa.framework */,
-				A659E13815F45678006C244C /* SenTestingKit.framework */,
-				A659E11C15F45678006C244C /* Other Frameworks */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		A659E11C15F45678006C244C /* Other Frameworks */ = {
-			isa = PBXGroup;
-			children = (
+				A654488816041C4E0095DFB2 /* ServiceManagement.framework */,
+				A665F0BD160182A3009E5EB3 /* Security.framework */,
+				A665F0BA16017EA3009E5EB3 /* SecurityFoundation.framework */,
 				A659E11D15F45678006C244C /* AppKit.framework */,
 				A659E11E15F45678006C244C /* CoreData.framework */,
 				A659E11F15F45678006C244C /* Foundation.framework */,
+				A659E11A15F45678006C244C /* Cocoa.framework */,
+				A659E13815F45678006C244C /* SenTestingKit.framework */,
 			);
-			name = "Other Frameworks";
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		A659E12015F45678006C244C /* Meddo */ = {
 			isa = PBXGroup;
 			children = (
+				A65448831604198F0095DFB2 /* Resources */,
 				A6AA7F4515F9B416005E2A01 /* models */,
 				A659E12C15F45678006C244C /* MeddoAppDelegate.h */,
 				A659E12D15F45678006C244C /* MeddoAppDelegate.m */,
-				A659E12F15F45678006C244C /* MainMenu.xib */,
 				A659E12115F45678006C244C /* Supporting Files */,
 				A659E15115F50480006C244C /* FNMenuController.h */,
 				A659E15215F50480006C244C /* FNMenuController.m */,
-				A659E15415F511CC006C244C /* FNHostsService.h */,
-				A659E15515F511CC006C244C /* FNHostsService.m */,
+				A654488716041A090095DFB2 /* Services */,
 			);
 			path = Meddo;
 			sourceTree = "<group>";
@@ -170,6 +228,16 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A6989F981606CD6100E3341B /* MeddoHelper */ = {
+			isa = PBXGroup;
+			children = (
+				A6989FA01606CDA800E3341B /* MeddoHelper-Info.plist */,
+				A6989FA11606CDA900E3341B /* MeddoHelper-Launchd.plist */,
+				A6989F991606CD6100E3341B /* MeddoHelper.c */,
+			);
+			path = MeddoHelper;
+			sourceTree = "<group>";
+		};
 		A6AA7F4515F9B416005E2A01 /* models */ = {
 			isa = PBXGroup;
 			children = (
@@ -191,10 +259,12 @@
 				A659E11215F45678006C244C /* Sources */,
 				A659E11315F45678006C244C /* Frameworks */,
 				A659E11415F45678006C244C /* Resources */,
+				A6989F701604C7FF00E3341B /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A6F76F0B1606D09F00EFAC46 /* PBXTargetDependency */,
 			);
 			name = Meddo;
 			productName = Meddo;
@@ -220,6 +290,22 @@
 			productReference = A659E13715F45678006C244C /* MeddoTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
+		A6989F951606CD6100E3341B /* MeddoHelper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A6989F9D1606CD6100E3341B /* Build configuration list for PBXNativeTarget "MeddoHelper" */;
+			buildPhases = (
+				A6989F921606CD6100E3341B /* Sources */,
+				A6989F931606CD6100E3341B /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MeddoHelper;
+			productName = MeddoHelper;
+			productReference = A6989F961606CD6100E3341B /* com.fictitiousnonsense.MeddoHelper */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -243,6 +329,7 @@
 			projectRoot = "";
 			targets = (
 				A659E11515F45678006C244C /* Meddo */,
+				A6989F951606CD6100E3341B /* MeddoHelper */,
 				A659E13615F45678006C244C /* MeddoTests */,
 			);
 		};
@@ -296,6 +383,7 @@
 				A659E15315F50480006C244C /* FNMenuController.m in Sources */,
 				A659E15615F511CC006C244C /* FNHostsService.m in Sources */,
 				A6AA7F4915F9B46B005E2A01 /* FNHostLine.m in Sources */,
+				A6544886160419FC0095DFB2 /* FNSecurityService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,6 +395,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A6989F921606CD6100E3341B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6989F9A1606CD6100E3341B /* MeddoHelper.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -314,6 +410,11 @@
 			isa = PBXTargetDependency;
 			target = A659E11515F45678006C244C /* Meddo */;
 			targetProxy = A659E13B15F45679006C244C /* PBXContainerItemProxy */;
+		};
+		A6F76F0B1606D09F00EFAC46 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A6989F951606CD6100E3341B /* MeddoHelper */;
+			targetProxy = A6F76F0A1606D09F00EFAC46 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -405,11 +506,14 @@
 		A659E14915F45679006C244C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Meddo/Meddo-Prefix.pch";
 				INFOPLIST_FILE = "Meddo/Meddo-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = macosx10.7;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -417,11 +521,14 @@
 		A659E14A15F45679006C244C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Meddo/Meddo-Prefix.pch";
 				INFOPLIST_FILE = "Meddo/Meddo-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = macosx10.7;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -456,6 +563,48 @@
 			};
 			name = Release;
 		};
+		A6989F9E1606CD6100E3341B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				INFOPLIST_FILE = "MeddoHelper/MeddoHelper-Info.plist";
+				INFOPLIST_PREPROCESS = YES;
+				OTHER_LDFLAGS = (
+					"-sectcreate",
+					__TEXT,
+					__info_plist,
+					"MeddoHelper/MeddoHelper-Info.plist",
+					"-sectcreate",
+					__TEXT,
+					__launchd_plist,
+					"MeddoHelper/MeddoHelper-Launchd.plist",
+				);
+				PRODUCT_NAME = "com.fictitiousnonsense.$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		A6989F9F1606CD6100E3341B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				INFOPLIST_FILE = "MeddoHelper/MeddoHelper-Info.plist";
+				INFOPLIST_PREPROCESS = YES;
+				OTHER_LDFLAGS = (
+					"-sectcreate",
+					__TEXT,
+					__info_plist,
+					"MeddoHelper/MeddoHelper-Info.plist",
+					"-sectcreate",
+					__TEXT,
+					__launchd_plist,
+					"MeddoHelper/MeddoHelper-Launchd.plist",
+				);
+				PRODUCT_NAME = "com.fictitiousnonsense.$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -482,6 +631,15 @@
 			buildConfigurations = (
 				A659E14C15F45679006C244C /* Debug */,
 				A659E14D15F45679006C244C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A6989F9D1606CD6100E3341B /* Build configuration list for PBXNativeTarget "MeddoHelper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A6989F9E1606CD6100E3341B /* Debug */,
+				A6989F9F1606CD6100E3341B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
