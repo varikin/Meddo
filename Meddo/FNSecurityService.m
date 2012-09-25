@@ -40,46 +40,7 @@
 }
 
 - (void)sendMessage:(NSString *)message {
-    xpc_connection_t connection = xpc_connection_create_mach_service("com.fictitiousnonsense.MeddoHelper", NULL, XPC_CONNECTION_MACH_SERVICE_PRIVILEGED);
-    
-    if (!connection) {
-        NSLog(@"Failed to create XPC connection.");
-        return;
-    }
-    
-    xpc_connection_set_event_handler(connection, ^(xpc_object_t event) {
-        xpc_type_t type = xpc_get_type(event);
-        
-        if (type == XPC_TYPE_ERROR) {
-            
-            if (event == XPC_ERROR_CONNECTION_INTERRUPTED) {
-                NSLog(@"XPC connection interupted.");
-                
-            } else if (event == XPC_ERROR_CONNECTION_INVALID) {
-                NSLog(@"XPC connection invalid, releasing.");
-                xpc_release(connection);
-                
-            } else {
-                NSLog(@"Unexpected XPC connection error.");
-            }
-            
-        } else {
-            NSLog(@"Unexpected XPC connection event.");
-        }
-    });
-    
-    xpc_connection_resume(connection);
-    
-    xpc_object_t xpc_msg = xpc_dictionary_create(NULL, NULL, 0);
-    xpc_dictionary_set_string(xpc_msg, "request", [message UTF8String]);
-    
-    NSLog(@"Sending request: %@", message);
-    
-    xpc_connection_send_message_with_reply(connection, xpc_msg, dispatch_get_main_queue(), ^(xpc_object_t event) {
-        const char* response = xpc_dictionary_get_string(event, "reply");
-        NSLog(@"Received response: %s.", response);
-    });
-
+    NSLog(@"Message to send: %@", message);
 }
 
 
