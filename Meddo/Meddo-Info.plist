@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>LSUIElement</key>
-	<true/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -11,7 +9,7 @@
 	<key>CFBundleIconFile</key>
 	<string></string>
 	<key>CFBundleIdentifier</key>
-	<string>com.fictitiousnonsense.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>com.fictitiousnonsense.Meddo</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -28,6 +26,8 @@
 	<string>public.app-category.developer-tools</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>${MACOSX_DEPLOYMENT_TARGET}</string>
+	<key>LSUIElement</key>
+	<true/>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2012 Fictitious Nonsense. All rights reserved.</string>
 	<key>NSMainNibFile</key>
@@ -37,7 +37,7 @@
 	<key>SMPrivilegedExecutables</key>
 	<dict>
 		<key>com.fictitiousnonsense.MeddoHelper</key>
-		<string>identifier com.fictitiousnonsense.MeddoHelper and certificate leaf[subject.CN] = &quot;Mac Developer: John Shimek (K44LH44GRC)&quot;</string>
+		<string>identifier com.fictitiousnonsense.MeddoHelper and certificate leaf[subject.CN] = "Mac Developer: John Shimek (K44LH44GRC)"</string>
 	</dict>
 </dict>
 </plist>

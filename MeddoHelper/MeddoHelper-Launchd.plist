@@ -4,5 +4,10 @@
 <dict>
 	<key>Label</key>
 	<string>com.fictitiousnonsense.MeddoHelper</string>
+	<key>MachServices</key>
+	<dict>
+		<key>com.fictitiousnonsense.MeddoHelper</key>
+		<true/>
+	</dict>
 </dict>
 </plist>

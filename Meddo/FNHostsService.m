@@ -7,8 +7,7 @@
 //
 
 #import "FNHostsService.h"
-#import <ServiceManagement/ServiceManagement.h>
-#import <Security/Authorization.h>
+#import "FNSecurityService.h"
 
 @interface FNHostsService()
 
@@ -43,31 +42,9 @@ typedef enum {
 
 
 - (void) write:(NSString *)hosts {
-    BOOL result = NO;
-    
-	AuthorizationItem authItem		= { kSMRightBlessPrivilegedHelper, 0, NULL, 0 };
-	AuthorizationRights authRights	= { 1, &authItem };
-	AuthorizationFlags flags		=	kAuthorizationFlagDefaults				|
-    kAuthorizationFlagInteractionAllowed	|
-    kAuthorizationFlagPreAuthorize			|
-    kAuthorizationFlagExtendRights;
-    
-	AuthorizationRef authRef = NULL;
-    CFErrorRef error = NULL;
-	
-	OSStatus status = AuthorizationCreate(&authRights, kAuthorizationEmptyEnvironment, flags, &authRef);
-	if (status == errAuthorizationSuccess) {
-		result = SMJobBless(kSMDomainSystemLaunchd, (CFStringRef)@"com.fictitiousnonsense.MeddoHelper", authRef, &error);
-	} else {
-        NSLog(@"Failed to authorize");
-	}
-    
-    if (error != NULL) {
-        NSLog(@"Error: %@", error);
-    } else {
-        NSLog(@"Holy shit, I think it worked");
-    }
-	
+    FNSecurityService *security = [[FNSecurityService alloc] init];
+    [security blessHelper];
+    [security sendMessage:@"A message"];
 }
 
 #pragma mark - Parse methods

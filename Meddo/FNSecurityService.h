@@ -10,4 +10,7 @@
 
 @interface FNSecurityService : NSObject
 
+- (void) blessHelper;
+- (void) sendMessage:(NSString *)message;
+
 @end
