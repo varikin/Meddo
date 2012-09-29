@@ -23,9 +23,9 @@
 		A659E15315F50480006C244C /* FNMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = A659E15215F50480006C244C /* FNMenuController.m */; };
 		A659E15615F511CC006C244C /* FNHostsService.m in Sources */ = {isa = PBXBuildFile; fileRef = A659E15515F511CC006C244C /* FNHostsService.m */; };
 		A665F0BE160182A3009E5EB3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A665F0BD160182A3009E5EB3 /* Security.framework */; };
+		A66C7A22161745090089CE7E /* com.fictitiousnonsense.MeddoHelper in CopyFiles */ = {isa = PBXBuildFile; fileRef = A6989F961606CD6100E3341B /* com.fictitiousnonsense.MeddoHelper */; };
 		A6989F9A1606CD6100E3341B /* MeddoHelper.c in Sources */ = {isa = PBXBuildFile; fileRef = A6989F991606CD6100E3341B /* MeddoHelper.c */; };
 		A6AA7F4915F9B46B005E2A01 /* FNHostLine.m in Sources */ = {isa = PBXBuildFile; fileRef = A6AA7F4815F9B46B005E2A01 /* FNHostLine.m */; };
-		A6F76F0F1606D24700EFAC46 /* com.fictitiousnonsense.MeddoHelper in CopyFiles */ = {isa = PBXBuildFile; fileRef = A6989F961606CD6100E3341B /* com.fictitiousnonsense.MeddoHelper */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +36,7 @@
 			remoteGlobalIDString = A659E11515F45678006C244C;
 			remoteInfo = Meddo;
 		};
-		A6F76F0A1606D09F00EFAC46 /* PBXContainerItemProxy */ = {
+		A66C7A231617451A0089CE7E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A659E10D15F45678006C244C /* Project object */;
 			proxyType = 1;
@@ -52,7 +52,7 @@
 			dstPath = Contents/Library/LaunchServices;
 			dstSubfolderSpec = 1;
 			files = (
-				A6F76F0F1606D24700EFAC46 /* com.fictitiousnonsense.MeddoHelper in CopyFiles */,
+				A66C7A22161745090089CE7E /* com.fictitiousnonsense.MeddoHelper in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,7 +260,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				A6F76F0B1606D09F00EFAC46 /* PBXTargetDependency */,
+				A66C7A241617451A0089CE7E /* PBXTargetDependency */,
 			);
 			name = Meddo;
 			productName = Meddo;
@@ -407,10 +407,10 @@
 			target = A659E11515F45678006C244C /* Meddo */;
 			targetProxy = A659E13B15F45679006C244C /* PBXContainerItemProxy */;
 		};
-		A6F76F0B1606D09F00EFAC46 /* PBXTargetDependency */ = {
+		A66C7A241617451A0089CE7E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A6989F951606CD6100E3341B /* MeddoHelper */;
-			targetProxy = A6F76F0A1606D09F00EFAC46 /* PBXContainerItemProxy */;
+			targetProxy = A66C7A231617451A0089CE7E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

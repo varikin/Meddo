@@ -35,7 +35,7 @@
     if (error != NULL) {
         NSLog(@"Error: %@", error);
     } else {
-        NSLog(@"Holy shit, I think it worked");
+        NSLog(@"I think it worked");
     }
 }
 
