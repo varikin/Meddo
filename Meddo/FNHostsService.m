@@ -30,7 +30,6 @@ typedef enum {
 
 @implementation FNHostsService
 
-#pragma mark -
 + (FNHostsService *) sharedInstance {
     static FNHostsService *sharedInstance = nil;
     static dispatch_once_t onceToken;
@@ -42,9 +41,7 @@ typedef enum {
 
 
 - (void) write:(NSString *)hosts {
-    FNSecurityService *security = [[FNSecurityService alloc] init];
-    [security blessHelper];
-    [security sendMessage:@"A message"];
+    [[FNSecurityService sharedInstance] sendMessage:@" A message"];
 }
 
 #pragma mark - Parse methods

@@ -148,8 +148,8 @@
 			isa = PBXGroup;
 			children = (
 				A659E12015F45678006C244C /* Meddo */,
-				A659E13D15F45679006C244C /* MeddoTests */,
 				A6989F981606CD6100E3341B /* MeddoHelper */,
+				A659E13D15F45679006C244C /* MeddoTests */,
 				A659E11915F45678006C244C /* Frameworks */,
 				A659E11715F45678006C244C /* Products */,
 			);

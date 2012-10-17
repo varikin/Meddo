@@ -8,9 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+#define kHelper @"com.fictitiousnonsense.MeddoHelper"
+#define kHelperLocation @"Contents/Library/LaunchServices/"kHelper
+
 @interface FNSecurityService : NSObject
 
-- (void) blessHelper;
++ (FNSecurityService *) sharedInstance;
 - (void) sendMessage:(NSString *)message;
+
+
 
 @end
