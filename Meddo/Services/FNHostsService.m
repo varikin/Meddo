@@ -45,7 +45,7 @@ typedef enum {
 }
 
 - (void) write:(NSArray *)hosts {
-    NSString *message = [hosts componentsJoinedByString:@"\n"];
+    NSString *message = [hosts componentsJoinedByString:@"\n\n"];
     [[FNMessageService sharedInstance] sendMessage:message];
 }
 
