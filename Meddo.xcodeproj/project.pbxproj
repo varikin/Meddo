@@ -26,6 +26,7 @@
 		A66C7A22161745090089CE7E /* com.fictitiousnonsense.MeddoHelper in CopyFiles */ = {isa = PBXBuildFile; fileRef = A6989F961606CD6100E3341B /* com.fictitiousnonsense.MeddoHelper */; };
 		A6989F9A1606CD6100E3341B /* MeddoHelper.c in Sources */ = {isa = PBXBuildFile; fileRef = A6989F991606CD6100E3341B /* MeddoHelper.c */; };
 		A6AA7F4915F9B46B005E2A01 /* FNHostLine.m in Sources */ = {isa = PBXBuildFile; fileRef = A6AA7F4815F9B46B005E2A01 /* FNHostLine.m */; };
+		A6DA139D1630F1F700F72006 /* FNMessageService.m in Sources */ = {isa = PBXBuildFile; fileRef = A6DA139C1630F1F700F72006 /* FNMessageService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,8 +60,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		A6544884160419FC0095DFB2 /* FNSecurityService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNSecurityService.h; sourceTree = "<group>"; };
-		A6544885160419FC0095DFB2 /* FNSecurityService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNSecurityService.m; sourceTree = "<group>"; };
+		A6544884160419FC0095DFB2 /* FNSecurityService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNSecurityService.h; path = services/FNSecurityService.h; sourceTree = "<group>"; };
+		A6544885160419FC0095DFB2 /* FNSecurityService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNSecurityService.m; path = services/FNSecurityService.m; sourceTree = "<group>"; };
 		A654488816041C4E0095DFB2 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/ServiceManagement.framework; sourceTree = DEVELOPER_DIR; };
 		A659E11615F45678006C244C /* Meddo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meddo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A659E11A15F45678006C244C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -84,8 +85,8 @@
 		A659E14F15F4FC13006C244C /* FNHost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNHost.m; path = Models/FNHost.m; sourceTree = "<group>"; };
 		A659E15115F50480006C244C /* FNMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNMenuController.h; sourceTree = "<group>"; };
 		A659E15215F50480006C244C /* FNMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNMenuController.m; sourceTree = "<group>"; };
-		A659E15415F511CC006C244C /* FNHostsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNHostsService.h; sourceTree = "<group>"; };
-		A659E15515F511CC006C244C /* FNHostsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNHostsService.m; sourceTree = "<group>"; };
+		A659E15415F511CC006C244C /* FNHostsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNHostsService.h; path = services/FNHostsService.h; sourceTree = "<group>"; };
+		A659E15515F511CC006C244C /* FNHostsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNHostsService.m; path = services/FNHostsService.m; sourceTree = "<group>"; };
 		A665F0BD160182A3009E5EB3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		A6989F961606CD6100E3341B /* com.fictitiousnonsense.MeddoHelper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = com.fictitiousnonsense.MeddoHelper; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6989F991606CD6100E3341B /* MeddoHelper.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = MeddoHelper.c; sourceTree = "<group>"; };
@@ -93,6 +94,9 @@
 		A6989FA11606CDA900E3341B /* MeddoHelper-Launchd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MeddoHelper-Launchd.plist"; sourceTree = "<group>"; };
 		A6AA7F4715F9B46B005E2A01 /* FNHostLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNHostLine.h; path = Models/FNHostLine.h; sourceTree = "<group>"; };
 		A6AA7F4815F9B46B005E2A01 /* FNHostLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNHostLine.m; path = Models/FNHostLine.m; sourceTree = "<group>"; };
+		A6DA139B1630F1F700F72006 /* FNMessageService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNMessageService.h; path = services/FNMessageService.h; sourceTree = "<group>"; };
+		A6DA139C1630F1F700F72006 /* FNMessageService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNMessageService.m; path = services/FNMessageService.m; sourceTree = "<group>"; };
+		A6DA139F1630F41100F72006 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +144,8 @@
 				A659E15515F511CC006C244C /* FNHostsService.m */,
 				A6544884160419FC0095DFB2 /* FNSecurityService.h */,
 				A6544885160419FC0095DFB2 /* FNSecurityService.m */,
+				A6DA139B1630F1F700F72006 /* FNMessageService.h */,
+				A6DA139C1630F1F700F72006 /* FNMessageService.m */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -182,13 +188,13 @@
 			isa = PBXGroup;
 			children = (
 				A65448831604198F0095DFB2 /* Resources */,
-				A6AA7F4515F9B416005E2A01 /* models */,
+				A6AA7F4515F9B416005E2A01 /* Models */,
+				A654488716041A090095DFB2 /* Services */,
+				A659E12115F45678006C244C /* Supporting Files */,
 				A659E12C15F45678006C244C /* MeddoAppDelegate.h */,
 				A659E12D15F45678006C244C /* MeddoAppDelegate.m */,
-				A659E12115F45678006C244C /* Supporting Files */,
 				A659E15115F50480006C244C /* FNMenuController.h */,
 				A659E15215F50480006C244C /* FNMenuController.m */,
-				A654488716041A090095DFB2 /* Services */,
 			);
 			path = Meddo;
 			sourceTree = "<group>";
@@ -196,6 +202,7 @@
 		A659E12115F45678006C244C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A6DA139F1630F41100F72006 /* Constants.h */,
 				A659E12215F45678006C244C /* Meddo-Info.plist */,
 				A659E12315F45678006C244C /* InfoPlist.strings */,
 				A659E12615F45678006C244C /* main.m */,
@@ -234,7 +241,7 @@
 			path = MeddoHelper;
 			sourceTree = "<group>";
 		};
-		A6AA7F4515F9B416005E2A01 /* models */ = {
+		A6AA7F4515F9B416005E2A01 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				A659E14E15F4FC13006C244C /* FNHost.h */,
@@ -242,7 +249,7 @@
 				A6AA7F4715F9B46B005E2A01 /* FNHostLine.h */,
 				A6AA7F4815F9B46B005E2A01 /* FNHostLine.m */,
 			);
-			name = models;
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -380,6 +387,7 @@
 				A659E15615F511CC006C244C /* FNHostsService.m in Sources */,
 				A6AA7F4915F9B46B005E2A01 /* FNHostLine.m in Sources */,
 				A6544886160419FC0095DFB2 /* FNSecurityService.m in Sources */,
+				A6DA139D1630F1F700F72006 /* FNMessageService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

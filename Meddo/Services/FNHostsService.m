@@ -7,7 +7,12 @@
 //
 
 #import "FNHostsService.h"
-#import "FNSecurityService.h"
+#import "FNHost.h"
+#import "FNHostLine.h"
+#import "FNMessageService.h"
+#import "Constants.h"
+#include <arpa/inet.h>
+
 
 @interface FNHostsService()
 
@@ -41,7 +46,7 @@ typedef enum {
 
 
 - (void) write:(NSString *)hosts {
-    [[FNSecurityService sharedInstance] sendMessage:@" A message"];
+    [[FNMessageService sharedInstance] sendMessage:@" A message"];
 }
 
 #pragma mark - Parse methods
