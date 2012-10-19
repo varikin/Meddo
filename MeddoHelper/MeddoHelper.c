@@ -8,6 +8,7 @@
 
 #include <syslog.h>
 #include <xpc/xpc.h>
+#include "MeddoHelper.h"
 
 static void __XPC_Peer_Event_Handler(xpc_connection_t connection, xpc_object_t event) {
     syslog(LOG_NOTICE, "Received event in helper.");
@@ -28,9 +29,16 @@ static void __XPC_Peer_Event_Handler(xpc_connection_t connection, xpc_object_t e
         
     } else {
         xpc_connection_t remote = xpc_dictionary_get_remote_connection(event);
-        
         xpc_object_t reply = xpc_dictionary_create_reply(event);
-        xpc_dictionary_set_string(reply, "reply", "Hi there, host application!");
+
+        const char *hosts = xpc_dictionary_get_string(event, "hosts");
+        int result = writeHosts(hosts);
+        if (result == 0) {
+            xpc_dictionary_set_string(reply, "status", "success");
+        } else {
+            xpc_dictionary_set_string(reply, "status", "failure");
+        }
+
         xpc_connection_send_message(remote, reply);
         xpc_release(reply);
     }
@@ -47,7 +55,7 @@ static void __XPC_Connection_Handler(xpc_connection_t connection) {
 }
 
 int main(int argc, const char *argv[]) {
-    xpc_connection_t service = xpc_connection_create_mach_service("com.fictitiousnonsense.MeddoHelper",
+    xpc_connection_t service = xpc_connection_create_mach_service(kHelper,
                                                                   dispatch_get_main_queue(),
                                                                   XPC_CONNECTION_MACH_SERVICE_LISTENER);
     
@@ -62,11 +70,16 @@ int main(int argc, const char *argv[]) {
     });
     
     xpc_connection_resume(service);
-    
     dispatch_main();
-    
     xpc_release(service);
     
     return EXIT_SUCCESS;
 }
+
+int writeHosts(const char *hosts) {
+    
+    return 0;
+}
+
+
 

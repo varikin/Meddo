@@ -97,6 +97,7 @@
 		A6DA139B1630F1F700F72006 /* FNMessageService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNMessageService.h; path = services/FNMessageService.h; sourceTree = "<group>"; };
 		A6DA139C1630F1F700F72006 /* FNMessageService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNMessageService.m; path = services/FNMessageService.m; sourceTree = "<group>"; };
 		A6DA139F1630F41100F72006 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		A6DA13A21631061E00F72006 /* MeddoHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeddoHelper.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,6 +238,7 @@
 				A6989FA01606CDA800E3341B /* MeddoHelper-Info.plist */,
 				A6989FA11606CDA900E3341B /* MeddoHelper-Launchd.plist */,
 				A6989F991606CD6100E3341B /* MeddoHelper.c */,
+				A6DA13A21631061E00F72006 /* MeddoHelper.h */,
 			);
 			path = MeddoHelper;
 			sourceTree = "<group>";

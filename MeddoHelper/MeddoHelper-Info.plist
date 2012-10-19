@@ -9,7 +9,7 @@
 	<key>CFBundleName</key>
 	<string>MeddoHelper</string>
 	<key>CFBundleVersion</key>
-	<string>1.3</string>
+	<string>2</string>
 	<key>SMAuthorizedClients</key>
 	<array>
 		<string>identifier com.fictitiousnonsense.Meddo and certificate leaf[subject.CN] = &quot;Mac Developer: John Shimek (K44LH44GRC)&quot;</string>

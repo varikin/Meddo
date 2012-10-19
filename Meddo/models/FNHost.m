@@ -66,6 +66,7 @@
     }
 }
 
+
 - (NSString *) shortDescription {
     NSString *result = [self name];
     if ([[self hostlines] count] > 0) {
@@ -78,5 +79,18 @@
     }
     return result;
 }
+
+
+/*
+ * Returns an NSString formatted correctly for the /ect/hosts file.
+ */
+- (NSString *) description {
+    NSMutableString *formatted = [[NSMutableString alloc] init];
+    [formatted appendString:[self.comments componentsJoinedByString:@"\n"]];
+    [formatted appendString:@"\n"];
+    [formatted appendString:[self.hostlines componentsJoinedByString:@"\n"]];
+    return [NSString stringWithString:formatted];
+}
+
 
 @end

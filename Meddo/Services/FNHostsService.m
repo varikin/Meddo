@@ -44,9 +44,9 @@ typedef enum {
     return sharedInstance;
 }
 
-
-- (void) write:(NSString *)hosts {
-    [[FNMessageService sharedInstance] sendMessage:@" A message"];
+- (void) write:(NSArray *)hosts {
+    NSString *message = [hosts componentsJoinedByString:@"\n"];
+    [[FNMessageService sharedInstance] sendMessage:message];
 }
 
 #pragma mark - Parse methods
