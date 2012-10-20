@@ -9,7 +9,7 @@
 #ifndef Meddo_MeddoHelper_h
 #define Meddo_MeddoHelper_h
 
-#define kHostFile @"/private/etc/hosts"
+#define kHostFile "/private/etc/hosts"
 #define kHelper "com.fictitiousnonsense.MeddoHelper"
 
 int writeHosts(const char *hosts);

@@ -6,9 +6,11 @@
 //  Copyright (c) 2012 Fictitious Nonsense. All rights reserved.
 //
 
+#include "MeddoHelper.h"
 #include <syslog.h>
 #include <xpc/xpc.h>
-#include "MeddoHelper.h"
+#include <errno.h>
+
 
 static void __XPC_Peer_Event_Handler(xpc_connection_t connection, xpc_object_t event) {
     syslog(LOG_NOTICE, "Received event in helper.");
@@ -77,6 +79,18 @@ int main(int argc, const char *argv[]) {
 }
 
 int writeHosts(const char *hosts) {
+    unsigned long length = strlen(hosts);
+    unsigned long size = length * sizeof(hosts);
+    syslog(LOG_NOTICE, "Writing hosts file; %zd chars total, %zd bytes", length, size);
+    
+    FILE *fp = fopen(kHostFile, "w");
+    if (fp == NULL) {
+        syslog(LOG_ERR, "Error opening host file: %s",strerror(errno));
+        return 1;
+    }
+    fprintf(fp, "%s", hosts);
+    
+    fclose(fp);
     
     return 0;
 }

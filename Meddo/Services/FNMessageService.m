@@ -22,7 +22,7 @@
 }
 
 - (void) sendMessage:(NSString *)message {
-    [[FNSecurityService sharedInstance] installHelper];
+    [[FNSecurityService sharedInstance] ensureHelperInstalled];
     
     xpc_connection_t connection = xpc_connection_create_mach_service([kHelper UTF8String], NULL, XPC_CONNECTION_MACH_SERVICE_PRIVILEGED);
     
