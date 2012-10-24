@@ -26,6 +26,8 @@
 		A66C7A22161745090089CE7E /* com.fictitiousnonsense.MeddoHelper in CopyFiles */ = {isa = PBXBuildFile; fileRef = A6989F961606CD6100E3341B /* com.fictitiousnonsense.MeddoHelper */; };
 		A6989F9A1606CD6100E3341B /* MeddoHelper.c in Sources */ = {isa = PBXBuildFile; fileRef = A6989F991606CD6100E3341B /* MeddoHelper.c */; };
 		A6AA7F4915F9B46B005E2A01 /* FNHostLine.m in Sources */ = {isa = PBXBuildFile; fileRef = A6AA7F4815F9B46B005E2A01 /* FNHostLine.m */; };
+		A6AF9935163778EA0023F138 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6AF9934163778EA0023F138 /* Sparkle.framework */; };
+		A6AF9939163779CB0023F138 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A6AF9934163778EA0023F138 /* Sparkle.framework */; };
 		A6DA139D1630F1F700F72006 /* FNMessageService.m in Sources */ = {isa = PBXBuildFile; fileRef = A6DA139C1630F1F700F72006 /* FNMessageService.m */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +56,16 @@
 			dstSubfolderSpec = 1;
 			files = (
 				A66C7A22161745090089CE7E /* com.fictitiousnonsense.MeddoHelper in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6AF9938163779BA0023F138 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A6AF9939163779CB0023F138 /* Sparkle.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +106,7 @@
 		A6989FA11606CDA900E3341B /* MeddoHelper-Launchd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MeddoHelper-Launchd.plist"; sourceTree = "<group>"; };
 		A6AA7F4715F9B46B005E2A01 /* FNHostLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNHostLine.h; path = Models/FNHostLine.h; sourceTree = "<group>"; };
 		A6AA7F4815F9B46B005E2A01 /* FNHostLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNHostLine.m; path = Models/FNHostLine.m; sourceTree = "<group>"; };
+		A6AF9934163778EA0023F138 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		A6DA139B1630F1F700F72006 /* FNMessageService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNMessageService.h; path = services/FNMessageService.h; sourceTree = "<group>"; };
 		A6DA139C1630F1F700F72006 /* FNMessageService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNMessageService.m; path = services/FNMessageService.m; sourceTree = "<group>"; };
 		A6DA139F1630F41100F72006 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
@@ -108,6 +121,7 @@
 				A654488916041C4E0095DFB2 /* ServiceManagement.framework in Frameworks */,
 				A665F0BE160182A3009E5EB3 /* Security.framework in Frameworks */,
 				A659E11B15F45678006C244C /* Cocoa.framework in Frameworks */,
+				A6AF9935163778EA0023F138 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,6 +189,7 @@
 		A659E11915F45678006C244C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A6AF9934163778EA0023F138 /* Sparkle.framework */,
 				A654488816041C4E0095DFB2 /* ServiceManagement.framework */,
 				A665F0BD160182A3009E5EB3 /* Security.framework */,
 				A659E11D15F45678006C244C /* AppKit.framework */,
@@ -265,6 +280,7 @@
 				A659E11315F45678006C244C /* Frameworks */,
 				A659E11415F45678006C244C /* Resources */,
 				A6989F701604C7FF00E3341B /* CopyFiles */,
+				A6AF9938163779BA0023F138 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -518,6 +534,10 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Meddo/Meddo-Prefix.pch";
 				INFOPLIST_FILE = "Meddo/Meddo-Info.plist";
@@ -533,6 +553,10 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Meddo/Meddo-Prefix.pch";
 				INFOPLIST_FILE = "Meddo/Meddo-Info.plist";
