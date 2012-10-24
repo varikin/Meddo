@@ -28,6 +28,7 @@
 		A6AA7F4915F9B46B005E2A01 /* FNHostLine.m in Sources */ = {isa = PBXBuildFile; fileRef = A6AA7F4815F9B46B005E2A01 /* FNHostLine.m */; };
 		A6AF9935163778EA0023F138 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6AF9934163778EA0023F138 /* Sparkle.framework */; };
 		A6AF9939163779CB0023F138 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A6AF9934163778EA0023F138 /* Sparkle.framework */; };
+		A6AF993C163783AA0023F138 /* MeddoPreferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6AF993A163783AA0023F138 /* MeddoPreferences.xib */; };
 		A6DA139D1630F1F700F72006 /* FNMessageService.m in Sources */ = {isa = PBXBuildFile; fileRef = A6DA139C1630F1F700F72006 /* FNMessageService.m */; };
 /* End PBXBuildFile section */
 
@@ -107,6 +108,7 @@
 		A6AA7F4715F9B46B005E2A01 /* FNHostLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNHostLine.h; path = Models/FNHostLine.h; sourceTree = "<group>"; };
 		A6AA7F4815F9B46B005E2A01 /* FNHostLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNHostLine.m; path = Models/FNHostLine.m; sourceTree = "<group>"; };
 		A6AF9934163778EA0023F138 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
+		A6AF993B163783AA0023F138 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MeddoPreferences.xib; sourceTree = "<group>"; };
 		A6DA139B1630F1F700F72006 /* FNMessageService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNMessageService.h; path = services/FNMessageService.h; sourceTree = "<group>"; };
 		A6DA139C1630F1F700F72006 /* FNMessageService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNMessageService.m; path = services/FNMessageService.m; sourceTree = "<group>"; };
 		A6DA139F1630F41100F72006 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				A659E12F15F45678006C244C /* MainMenu.xib */,
+				A6AF993A163783AA0023F138 /* MeddoPreferences.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 				A659E12515F45678006C244C /* InfoPlist.strings in Resources */,
 				A659E12B15F45678006C244C /* Credits.rtf in Resources */,
 				A659E13115F45678006C244C /* MainMenu.xib in Resources */,
+				A6AF993C163783AA0023F138 /* MeddoPreferences.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,6 +475,14 @@
 				A659E14115F45679006C244C /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A6AF993A163783AA0023F138 /* MeddoPreferences.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A6AF993B163783AA0023F138 /* en */,
+			);
+			name = MeddoPreferences.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
