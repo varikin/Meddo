@@ -11,7 +11,7 @@
 @interface FNMenuController()
 
 - (IBAction)handleMenuItem:(id)sender;
-- (NSString *) formatName:(FNHost *)host;
+- (NSString *)formatName:(FNHost *)host;
 
 @end
 
@@ -79,6 +79,8 @@
     }
     return [NSString stringWithFormat:@"%@ %@", status, [host name]];
 }
+
+
 
 
 @end

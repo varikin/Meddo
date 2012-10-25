@@ -11,8 +11,12 @@
 
 @interface MeddoAppDelegate : NSObject <NSApplicationDelegate>
 
-@property (assign) IBOutlet NSWindow *window;
 @property (nonatomic, retain) IBOutlet NSMenu *menu;
 @property (nonatomic, retain) FNMenuController *menuController;
+@property (nonatomic, retain) IBOutlet NSWindow *preferences;
+
+- (IBAction)openPreferences:(id)sender;
 
 @end
+
+

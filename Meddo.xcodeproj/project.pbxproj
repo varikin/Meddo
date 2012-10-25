@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A64CAF091638E12E001D3BE5 /* FNPreferncesController.m in Sources */ = {isa = PBXBuildFile; fileRef = A64CAF071638E12E001D3BE5 /* FNPreferncesController.m */; };
 		A6544886160419FC0095DFB2 /* FNSecurityService.m in Sources */ = {isa = PBXBuildFile; fileRef = A6544885160419FC0095DFB2 /* FNSecurityService.m */; };
 		A654488916041C4E0095DFB2 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A654488816041C4E0095DFB2 /* ServiceManagement.framework */; };
 		A659E11B15F45678006C244C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A659E11A15F45678006C244C /* Cocoa.framework */; };
@@ -28,7 +29,6 @@
 		A6AA7F4915F9B46B005E2A01 /* FNHostLine.m in Sources */ = {isa = PBXBuildFile; fileRef = A6AA7F4815F9B46B005E2A01 /* FNHostLine.m */; };
 		A6AF9935163778EA0023F138 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6AF9934163778EA0023F138 /* Sparkle.framework */; };
 		A6AF9939163779CB0023F138 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A6AF9934163778EA0023F138 /* Sparkle.framework */; };
-		A6AF993C163783AA0023F138 /* MeddoPreferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6AF993A163783AA0023F138 /* MeddoPreferences.xib */; };
 		A6DA139D1630F1F700F72006 /* FNMessageService.m in Sources */ = {isa = PBXBuildFile; fileRef = A6DA139C1630F1F700F72006 /* FNMessageService.m */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +73,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A64CAF061638E12E001D3BE5 /* FNPreferncesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNPreferncesController.h; path = controllers/FNPreferncesController.h; sourceTree = "<group>"; };
+		A64CAF071638E12E001D3BE5 /* FNPreferncesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNPreferncesController.m; path = controllers/FNPreferncesController.m; sourceTree = "<group>"; };
 		A6544884160419FC0095DFB2 /* FNSecurityService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNSecurityService.h; path = services/FNSecurityService.h; sourceTree = "<group>"; };
 		A6544885160419FC0095DFB2 /* FNSecurityService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNSecurityService.m; path = services/FNSecurityService.m; sourceTree = "<group>"; };
 		A654488816041C4E0095DFB2 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/ServiceManagement.framework; sourceTree = DEVELOPER_DIR; };
@@ -96,8 +98,8 @@
 		A659E14415F45679006C244C /* MeddoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeddoTests.m; sourceTree = "<group>"; };
 		A659E14E15F4FC13006C244C /* FNHost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNHost.h; path = Models/FNHost.h; sourceTree = "<group>"; };
 		A659E14F15F4FC13006C244C /* FNHost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNHost.m; path = Models/FNHost.m; sourceTree = "<group>"; };
-		A659E15115F50480006C244C /* FNMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNMenuController.h; sourceTree = "<group>"; };
-		A659E15215F50480006C244C /* FNMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNMenuController.m; sourceTree = "<group>"; };
+		A659E15115F50480006C244C /* FNMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNMenuController.h; path = controllers/FNMenuController.h; sourceTree = "<group>"; };
+		A659E15215F50480006C244C /* FNMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNMenuController.m; path = controllers/FNMenuController.m; sourceTree = "<group>"; };
 		A659E15415F511CC006C244C /* FNHostsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNHostsService.h; path = services/FNHostsService.h; sourceTree = "<group>"; };
 		A659E15515F511CC006C244C /* FNHostsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNHostsService.m; path = services/FNHostsService.m; sourceTree = "<group>"; };
 		A665F0BD160182A3009E5EB3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -108,7 +110,6 @@
 		A6AA7F4715F9B46B005E2A01 /* FNHostLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNHostLine.h; path = Models/FNHostLine.h; sourceTree = "<group>"; };
 		A6AA7F4815F9B46B005E2A01 /* FNHostLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNHostLine.m; path = Models/FNHostLine.m; sourceTree = "<group>"; };
 		A6AF9934163778EA0023F138 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
-		A6AF993B163783AA0023F138 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MeddoPreferences.xib; sourceTree = "<group>"; };
 		A6DA139B1630F1F700F72006 /* FNMessageService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNMessageService.h; path = services/FNMessageService.h; sourceTree = "<group>"; };
 		A6DA139C1630F1F700F72006 /* FNMessageService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNMessageService.m; path = services/FNMessageService.m; sourceTree = "<group>"; };
 		A6DA139F1630F41100F72006 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
@@ -146,11 +147,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A64CAF0B1638F115001D3BE5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A659E15115F50480006C244C /* FNMenuController.h */,
+				A659E15215F50480006C244C /* FNMenuController.m */,
+				A64CAF061638E12E001D3BE5 /* FNPreferncesController.h */,
+				A64CAF071638E12E001D3BE5 /* FNPreferncesController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		A65448831604198F0095DFB2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				A659E12F15F45678006C244C /* MainMenu.xib */,
-				A6AF993A163783AA0023F138 /* MeddoPreferences.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -206,14 +217,13 @@
 		A659E12015F45678006C244C /* Meddo */ = {
 			isa = PBXGroup;
 			children = (
+				A64CAF0B1638F115001D3BE5 /* Controllers */,
 				A65448831604198F0095DFB2 /* Resources */,
 				A6AA7F4515F9B416005E2A01 /* Models */,
 				A654488716041A090095DFB2 /* Services */,
 				A659E12115F45678006C244C /* Supporting Files */,
 				A659E12C15F45678006C244C /* MeddoAppDelegate.h */,
 				A659E12D15F45678006C244C /* MeddoAppDelegate.m */,
-				A659E15115F50480006C244C /* FNMenuController.h */,
-				A659E15215F50480006C244C /* FNMenuController.m */,
 			);
 			path = Meddo;
 			sourceTree = "<group>";
@@ -367,7 +377,6 @@
 				A659E12515F45678006C244C /* InfoPlist.strings in Resources */,
 				A659E12B15F45678006C244C /* Credits.rtf in Resources */,
 				A659E13115F45678006C244C /* MainMenu.xib in Resources */,
-				A6AF993C163783AA0023F138 /* MeddoPreferences.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,6 +419,7 @@
 				A6AA7F4915F9B46B005E2A01 /* FNHostLine.m in Sources */,
 				A6544886160419FC0095DFB2 /* FNSecurityService.m in Sources */,
 				A6DA139D1630F1F700F72006 /* FNMessageService.m in Sources */,
+				A64CAF091638E12E001D3BE5 /* FNPreferncesController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,14 +485,6 @@
 				A659E14115F45679006C244C /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		A6AF993A163783AA0023F138 /* MeddoPreferences.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A6AF993B163783AA0023F138 /* en */,
-			);
-			name = MeddoPreferences.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
