@@ -13,9 +13,10 @@
 
 @property (nonatomic, retain) IBOutlet NSMenu *menu;
 @property (nonatomic, retain) FNMenuController *menuController;
-@property (nonatomic, retain) IBOutlet NSWindow *preferences;
+@property (nonatomic, retain) IBOutlet NSPanel *preferences;
 
-- (IBAction)openPreferences:(id)sender;
+- (IBAction) openPreferences:(id)sender;
+- (IBAction) quit:(id)sender;
 
 @end
 

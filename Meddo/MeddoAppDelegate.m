@@ -23,9 +23,12 @@
     [self setMenuController:[[FNMenuController alloc] initWithMenu:menu]];
 }
 
-- (IBAction)openPreferences:(id)sender {
+- (IBAction) openPreferences:(id)sender {
     [preferences makeKeyAndOrderFront:sender];
 }
 
+- (IBAction) quit:(id)sender {
+    [NSApp terminate:sender];
+}
 
 @end
