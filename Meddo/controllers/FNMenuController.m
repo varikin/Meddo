@@ -27,9 +27,9 @@
         [self setStatusMenu:menu];
         hostsService = [FNHostsService sharedInstance];
         NSStatusBar *systemStatusBar = [NSStatusBar systemStatusBar];
-        statusItem = [systemStatusBar statusItemWithLength:NSVariableStatusItemLength];
+        statusItem = [systemStatusBar statusItemWithLength:NSSquareStatusItemLength];
         [statusItem setMenu:statusMenu];
-        [statusItem setTitle:@"Meddo"];
+        [statusItem setTitle:@"M"];
         [statusItem setHighlightMode:YES];
         [self refreshMenu];
     }
