@@ -11,7 +11,7 @@
 @interface FNMenuController()
 
 - (IBAction)handleMenuItem:(id)sender;
-- (NSString *)formatName:(FNHost *)host;
+- (NSInteger)menuItemState:(FNHost *)host;
 
 @end
 
@@ -39,13 +39,14 @@
 - (void) refreshMenu {
     [self setHosts:[hostsService read]];
     for (FNHost *host in self.hosts) {
-        NSMenuItem *menuItem = [[NSMenuItem alloc] initWithTitle:[self formatName:host]
+        NSMenuItem *menuItem = [[NSMenuItem alloc] initWithTitle:[host name]
                                                           action:@selector(handleMenuItem:)
                                                    keyEquivalent:@""];
         [menuItem setRepresentedObject:host];
         [menuItem setTarget:self];
         [menuItem setToolTip:[host shortDescription]];
         [menuItem setEnabled:YES];
+        [menuItem setState:[self menuItemState:host]];
 
         [[self statusMenu] addItem:menuItem];
     }
@@ -57,30 +58,19 @@
         BOOL enabled = [host status] == HostEnabled;
         [host setEnabled:!enabled];
         [hostsService write:hosts];
-        [sender setTitle:[self formatName:host]];
+        [sender setState:[self menuItemState:host]];
     }
 }
 
-- (NSString *) formatName:(FNHost *)host {
-    NSString *status;
-    switch ([host status]) {
-        case HostDisabled:
-            status = @"x";
-            break;
-        case HostEnabled:
-            status = @"*";
-            break;
-        case HostPartial:
-            status = @"-";
-            break;
-        default:
-            status = @"?";
-            break;
+- (NSInteger) menuItemState:(FNHost *)host {
+    HostStatus status = [host status];
+    if (status == HostDisabled) {
+        return NSOffState;
+    } else if (status == HostEnabled) {
+        return NSOnState;
+    } else {
+        return NSMixedState;
     }
-    return [NSString stringWithFormat:@"%@ %@", status, [host name]];
 }
-
-
-
 
 @end
