@@ -38,7 +38,10 @@
 
 - (void) refreshMenu {
     [self setHosts:[hostsService read]];
-    for (FNHost *host in self.hosts) {
+    // Going backwards to insert at position 0
+    // Allows preferences to be the last item.
+    NSEnumerator *reversedHosts = [self.hosts reverseObjectEnumerator];
+    for (FNHost *host in reversedHosts) {
         NSMenuItem *menuItem = [[NSMenuItem alloc] initWithTitle:[host name]
                                                           action:@selector(handleMenuItem:)
                                                    keyEquivalent:@""];
@@ -48,7 +51,7 @@
         [menuItem setEnabled:YES];
         [menuItem setState:[self menuItemState:host]];
 
-        [[self statusMenu] addItem:menuItem];
+        [[self statusMenu] insertItem:menuItem atIndex:0];
     }
 }
 
