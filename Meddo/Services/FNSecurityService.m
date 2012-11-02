@@ -84,10 +84,17 @@
  * If the helper is not installed, returns 0 (Version 0)
  */
 - (NSInteger) getInstalledHelperVersion {
+    
+    NSInteger installedVersion = 0;
+    
     NSDictionary *installedHelperData = (__bridge NSDictionary *)SMJobCopyDictionary(kSMDomainSystemLaunchd, (CFStringRef)kHelper);
+    NSLog(@"Installed Helper data: %@", installedHelperData);
     NSString *installedHelperPath = [[installedHelperData objectForKey:@"ProgramArguments"] objectAtIndex:0];
-    NSURL *installedHelperUrl = [NSURL fileURLWithPath:installedHelperPath];
-    NSInteger installedVersion = [self getBundleVersion:installedHelperUrl];
+    
+    if (installedHelperPath) {
+        NSURL *installedHelperUrl = [NSURL fileURLWithPath:installedHelperPath isDirectory:NO];
+        installedVersion = [self getBundleVersion:installedHelperUrl];
+    }
 
     NSLog(@"Installed helper version: %ld", installedVersion);
     return installedVersion;

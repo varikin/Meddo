@@ -24,7 +24,9 @@
 }
 
 - (IBAction) openPreferences:(id)sender {
+    [NSApp activateIgnoringOtherApps:YES];
     [preferences makeKeyAndOrderFront:sender];
+
 }
 
 - (IBAction) quit:(id)sender {
