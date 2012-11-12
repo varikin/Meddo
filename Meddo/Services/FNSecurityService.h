@@ -10,12 +10,12 @@
 
 @interface FNSecurityService : NSObject
 
-+ (FNSecurityService *) sharedInstance;
-- (void) ensureHelperInstalled;
-- (void) installHelper;
-- (void) uninstallHelper;
-- (bool) isCurrentVersion;
-- (NSInteger) getInstalledHelperVersion;
-- (NSInteger) getCurrentHelperVersion;
++ (FNSecurityService *)sharedInstance;
+- (void)ensureHelperInstalled;
+- (void)installHelper;
+- (void)uninstallHelper;
+- (bool)isCurrentVersion;
+- (NSInteger)getInstalledHelperVersion;
+- (NSInteger)getCurrentHelperVersion;
 
 @end

@@ -10,7 +10,7 @@
 
 @interface FNMessageService : NSObject
 
-+ (FNMessageService *) sharedInstance;
-- (void) sendMessage:(NSString *)message;
++ (FNMessageService *)sharedInstance;
+- (void)sendMessage:(NSString *)message;
 
 @end

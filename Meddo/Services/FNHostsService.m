@@ -12,9 +12,19 @@
 #import "FNMessageService.h"
 #import "Constants.h"
 #include <arpa/inet.h>
+#include <CoreServices/CoreServices.h>
 
+// Prototype for FSEventCallback
 
-@interface FNHostsService()
+void fs_event_callback(ConstFSEventStreamRef streamRef, void *context, size_t numEvents,
+                       void *eventPaths, const FSEventStreamEventFlags eventFlags[],
+                       const FSEventStreamEventId eventIds[]);
+
+@interface FNHostsService() {
+    @private
+    NSMutableArray *callbacks;
+    FSEventStreamRef stream;
+}
 
 typedef enum {
     NoLine,
@@ -23,19 +33,21 @@ typedef enum {
     BlankLine
 } LineType;
 
-- (NSArray *) tokenize:(NSString *)line;
-- (FNHostLine *) parseHostLine:(NSArray *)tokens;
-- (LineType) getLineType:(NSArray *)tokens;
-- (BOOL) isIPAddress:(NSString *)token;
-- (BOOL) isComment:(NSString *)token;
-- (NSString *) guessNameFromHost:(FNHost *)host;
-- (FNHost *) saveHost:(FNHost *)host toArray:(NSMutableArray *)hosts;
+- (void)notify;
+- (NSArray *)read;
+- (NSArray *)tokenize:(NSString *)line;
+- (FNHostLine *)parseHostLine:(NSArray *)tokens;
+- (LineType)getLineType:(NSArray *)tokens;
+- (BOOL)isIPAddress:(NSString *)token;
+- (BOOL)isComment:(NSString *)token;
+- (NSString *)guessNameFromHost:(FNHost *)host;
+- (FNHost *)saveHost:(FNHost *)host toArray:(NSMutableArray *)hosts;
 
 @end
 
 @implementation FNHostsService
 
-+ (FNHostsService *) sharedInstance {
++ (FNHostsService *)sharedInstance {
     static FNHostsService *sharedInstance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -44,14 +56,63 @@ typedef enum {
     return sharedInstance;
 }
 
-- (void) write:(NSArray *)hosts {
+- (id)init {
+    self = [super init];
+    if (self != nil) {
+        callbacks = [NSMutableArray array];
+        
+        // Start watching the filesystem for changes
+        CFStringRef path = (CFStringRef)kHostFile;
+        CFArrayRef pathsToWatch = CFArrayCreate(NULL, (const void **)&path, 1, NULL);
+        FSEventStreamContext context = { 0, (__bridge void *)(self), NULL, NULL, NULL };
+        stream = FSEventStreamCreate(NULL,
+                                     &fs_event_callback,
+                                     &context,
+                                     pathsToWatch,
+                                     kFSEventStreamEventIdSinceNow,
+                                     10.0, /* Latency in seconds */
+                                     kFSEventStreamCreateFlagNone /* Flags explained in reference */
+                                     );
+        FSEventStreamScheduleWithRunLoop(stream, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode);
+        FSEventStreamStart(stream);        
+    }
+    return self;
+}
+
+- (void)dealloc {
+    FSEventStreamStop(stream);
+    FSEventStreamRelease(stream);
+}
+
+#pragma mark - Listener stuff
+
+- (void)registerListener:(void (^)(NSArray *))listener {
+    if (![callbacks containsObject:listener]) {
+        [callbacks addObject:listener];
+        
+        // Send new listener current info
+        NSArray *hosts = [self read];
+        listener(hosts);
+    }
+}
+
+- (void)update:(NSArray *)hosts {
     NSString *message = [hosts componentsJoinedByString:@"\n\n"];
     [[FNMessageService sharedInstance] sendMessage:message];
 }
 
+- (void)notify {
+    NSArray *hosts = [self read];
+    for (void (^callback)(NSArray *hosts) in callbacks) {
+        callback(hosts);
+    }
+}
+
+
 #pragma mark - Parse methods
 
-- (NSArray *) read {
+- (NSArray *)read {
+    
     NSError *error;
     NSString *allTheLines = [NSString stringWithContentsOfFile:kHostFile
                                                       encoding:NSUTF8StringEncoding
@@ -91,7 +152,7 @@ typedef enum {
     return [NSArray arrayWithArray:hosts];
 }
 
-- (NSArray *) tokenize:(NSString *)line {
+- (NSArray *)tokenize:(NSString *)line {
     // Trimming
     line = [line stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     
@@ -134,7 +195,7 @@ typedef enum {
     return tokens;
 }
 
-- (FNHostLine *) parseHostLine:(NSArray *)tokens {
+- (FNHostLine *)parseHostLine:(NSArray *)tokens {
     FNHostLine *hostline = [[FNHostLine alloc] init];
 
     int i = 0;
@@ -167,7 +228,7 @@ typedef enum {
 
 #pragma mark - Helper methods
 
-- (BOOL) isIPAddress:(NSString *)string {
+- (BOOL)isIPAddress:(NSString *)string {
     
     // Using the awesome ARPANET!
     // Some BSD library that needs cStrings
@@ -187,15 +248,12 @@ typedef enum {
     return success == 1;
 }
 
-- (BOOL) isComment:(NSString *)token {
-    if ([token characterAtIndex:0] == '#') {
-        return YES;
-    }
-    return NO;
+- (BOOL)isComment:(NSString *)token {
+    return [token characterAtIndex:0] == '#';
 }
 
 // Helper to check the type of the line
-- (LineType) getLineType:(NSArray *)tokens {
+- (LineType)getLineType:(NSArray *)tokens {
     if ([tokens count] == 0) {
         return BlankLine;
     }
@@ -224,7 +282,7 @@ typedef enum {
 // Tries to set a name for a host based on either:
 // 1) A comment
 // 2) The first host name
-- (NSString *) guessNameFromHost:(FNHost *)host {
+- (NSString *)guessNameFromHost:(FNHost *)host {
     NSString *name;
     for (NSString * comment in [host comments]) {
         NSString *cleaned = [[comment stringByReplacingOccurrencesOfString:@"#" withString:@""]
@@ -245,7 +303,7 @@ typedef enum {
 
 // Helper to add the host to the list if not empty
 // Returns a new (or current empty) host
-- (FNHost *) saveHost:(FNHost *)host toArray:(NSMutableArray *)hosts {
+- (FNHost *)saveHost:(FNHost *)host toArray:(NSMutableArray *)hosts {
     if (![host isEmpty]) {
         [host setName:[self guessNameFromHost:host]];
         [hosts addObject:host];
@@ -255,3 +313,11 @@ typedef enum {
 }
 
 @end
+
+void fs_event_callback(ConstFSEventStreamRef streamRef, void *context, size_t numEvents,
+                       void *eventPaths, const FSEventStreamEventFlags eventFlags[],
+                       const FSEventStreamEventId eventIds[]) {
+    FNHostsService *hostService = (__bridge FNHostsService *)context;
+    [hostService notify];
+    
+}

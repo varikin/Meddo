@@ -21,11 +21,11 @@ typedef enum {
 @property (nonatomic, retain) NSMutableArray *comments;
 @property (nonatomic, retain) NSMutableArray *hostlines;
 
-- (BOOL) isEmpty;
-- (void) addComment:(NSString *) comment;
-- (void) addHostline:(FNHostLine *) hostline;
-- (void) setEnabled:(BOOL) enabled;
-- (HostStatus) status;
-- (NSString *) shortDescription;
+- (BOOL)isEmpty;
+- (void)addComment:(NSString *)comment;
+- (void)addHostline:(FNHostLine *)hostline;
+- (void)setEnabled:(BOOL) enabled;
+- (HostStatus)status;
+- (NSString *)shortDescription;
 
 @end

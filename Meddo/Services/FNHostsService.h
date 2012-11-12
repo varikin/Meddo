@@ -18,17 +18,17 @@
 /*
  * Returns the Hosts Serivce singleton
  */
-+ (FNHostsService *) sharedInstance;
++ (FNHostsService *)sharedInstance;
 
 /*
- * Writes an array of FNHosts to /etc/hosts
- * Since /etc/hosts/ is owned by root, prompts the user for administrator access via authopen
+ * Register a listener for when the hosts file is updated.
+ * The block will be called when the host file is updated.
  */
-- (void) write:(NSArray *)hosts;
+-(void)registerListener:(void (^)(NSArray *))listener;
 
-/* 
- * Reads the /etc/hosts file into memory
+/*
+ * Update the hosts file with the given list.
  */
-- (NSArray *) read;
+-(void)update:(NSArray *)hosts;
 
 @end

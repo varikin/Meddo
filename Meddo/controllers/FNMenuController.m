@@ -21,23 +21,41 @@
 @synthesize statusItem;
 @synthesize hosts;
 
-- (id) initWithMenu:(NSMenu *)menu {
+- (id)initWithMenu:(NSMenu *)menu {
     self = [super init];
     if (self) {
         [self setStatusMenu:menu];
-        hostsService = [FNHostsService sharedInstance];
         NSStatusBar *systemStatusBar = [NSStatusBar systemStatusBar];
         statusItem = [systemStatusBar statusItemWithLength:NSSquareStatusItemLength];
         [statusItem setMenu:statusMenu];
         [statusItem setTitle:@"M"];
         [statusItem setHighlightMode:YES];
-        [self refreshMenu];
+        
+        // Register for updates from the host server
+        [[FNHostsService sharedInstance] registerListener:^(NSArray *updatedHosts) {
+            [self setHosts:updatedHosts];
+            [self refreshMenu];
+        }];
+        
     }
     return self;
 }
 
-- (void) refreshMenu {
-    [self setHosts:[hostsService read]];
+- (void)refreshMenu {
+    
+    // Get list of all host items in menu
+    NSMutableArray *itemsToRemove = [NSMutableArray array];
+    for (NSMenuItem *item in [self.statusMenu itemArray]) {
+        if ([[item representedObject] isKindOfClass:[FNHost class]]) {
+            [itemsToRemove addObject:item];
+        }
+    }
+    
+    // Remove all the current hosts from the menu
+    for (NSMenuItem *item in itemsToRemove) {
+        [self.statusMenu removeItem:item];
+    }
+    
     // Going backwards to insert at position 0
     // Allows preferences to be the last item.
     NSEnumerator *reversedHosts = [self.hosts reverseObjectEnumerator];
@@ -55,17 +73,17 @@
     }
 }
 
-- (IBAction) handleMenuItem:(id)sender {
+- (IBAction)handleMenuItem:(id)sender {
     if ([sender isKindOfClass:[NSMenuItem class]]) {
         FNHost *host = [sender representedObject];
         BOOL enabled = [host status] == HostEnabled;
         [host setEnabled:!enabled];
-        [hostsService write:hosts];
+        [[FNHostsService sharedInstance] update:hosts];
         [sender setState:[self menuItemState:host]];
     }
 }
 
-- (NSInteger) menuItemState:(FNHost *)host {
+- (NSInteger)menuItemState:(FNHost *)host {
     HostStatus status = [host status];
     if (status == HostDisabled) {
         return NSOffState;

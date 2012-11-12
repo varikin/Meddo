@@ -13,13 +13,13 @@
 
 @interface FNSecurityService ()
 
-- (NSInteger) getBundleVersion:(NSURL *)bundleUrl;
+- (NSInteger)getBundleVersion:(NSURL *)bundleUrl;
 
 @end
 
 @implementation FNSecurityService
 
-+ (FNSecurityService *) sharedInstance {
++ (FNSecurityService *)sharedInstance {
     static FNSecurityService *sharedInstance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -30,13 +30,13 @@
 
 #pragma mark Install and Uninstall
 
-- (void) ensureHelperInstalled {
+- (void)ensureHelperInstalled {
     if (![self isCurrentVersion]) {
         [self installHelper];
     }
 }
 
-- (void) installHelper {
+- (void)installHelper {
 	AuthorizationItem authItem		= { kSMRightBlessPrivilegedHelper, 0, NULL, 0 };
 	AuthorizationRights authRights	= { 1, &authItem };
 	AuthorizationFlags flags		=	kAuthorizationFlagDefaults				|
@@ -61,7 +61,7 @@
     }
 }
 
-- (void) uninstallHelper {
+- (void)uninstallHelper {
     NSLog(@"Uninstalling helper");
     // TODO: Implement
 }
@@ -71,7 +71,7 @@
 /*
  * Returns whether the installed helper is the current version.
  */
-- (bool) isCurrentVersion {
+- (bool)isCurrentVersion {
     NSInteger installedVersion = [self getInstalledHelperVersion];
     NSInteger currentVersion = [self getCurrentHelperVersion];
     bool isCurrent = installedVersion == currentVersion;
@@ -83,7 +83,7 @@
  * Returns the version of the installed helper.
  * If the helper is not installed, returns 0 (Version 0)
  */
-- (NSInteger) getInstalledHelperVersion {
+- (NSInteger)getInstalledHelperVersion {
     
     NSInteger installedVersion = 0;
     
@@ -103,7 +103,7 @@
 /*
  * Returns the current version of the helper in the app bundle
  */
-- (NSInteger) getCurrentHelperVersion {
+- (NSInteger)getCurrentHelperVersion {
     NSURL *currentHelperUrl = [[[NSBundle mainBundle] bundleURL] URLByAppendingPathComponent:kHelperLocation];
     NSInteger currentVersion = [self getBundleVersion:currentHelperUrl];
     
@@ -111,14 +111,11 @@
     return currentVersion;
 }
 
-- (NSInteger) getBundleVersion:(NSURL *)bundleUrl {
+- (NSInteger)getBundleVersion:(NSURL *)bundleUrl {
     NSDictionary *plist = (__bridge NSDictionary*)CFBundleCopyInfoDictionaryForURL( (__bridge CFURLRef)bundleUrl);
     NSString *bundleVersion = [plist objectForKey:@"CFBundleVersion"];
     NSInteger version = [bundleVersion integerValue];
     return version;
 }
-
-
-
 
 @end

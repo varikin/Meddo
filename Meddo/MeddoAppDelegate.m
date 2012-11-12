@@ -6,7 +6,6 @@
 //  Copyright (c) 2012 Fictitious Nonsense. All rights reserved.
 //
 #import "MeddoAppDelegate.h"
-#import "FNHostsService.h"
 
 @implementation MeddoAppDelegate
 
@@ -14,23 +13,21 @@
 @synthesize menuController;
 @synthesize preferences;
 
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
-{
-    // Insert code here to initialize your application
-}
 
-- (void) awakeFromNib {
+#pragma mark Lifecycle
+
+- (void)awakeFromNib {
     [self setMenuController:[[FNMenuController alloc] initWithMenu:menu]];
 }
 
-- (IBAction) openPreferences:(id)sender {
+- (IBAction)openPreferences:(id)sender {
     [NSApp activateIgnoringOtherApps:YES];
     [preferences makeKeyAndOrderFront:sender];
-
 }
 
-- (IBAction) quit:(id)sender {
+- (IBAction)quit:(id)sender {
     [NSApp terminate:sender];
 }
 
 @end
+

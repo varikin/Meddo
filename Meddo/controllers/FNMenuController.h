@@ -10,18 +10,13 @@
 #import "FNHostsService.h"
 #import "FNHost.h"
 
-@interface FNMenuController : NSObject {
-    @private
-    FNHostsService *hostsService;
-}
-
-
+@interface FNMenuController : NSObject
 
 @property (nonatomic, retain) NSMenu *statusMenu;
 @property (nonatomic, retain) NSStatusItem *statusItem;
 @property (nonatomic, retain) NSArray *hosts;
 
-- (id) initWithMenu:(NSMenu *) menu;
-- (void) refreshMenu;
+- (id)initWithMenu:(NSMenu *) menu;
+- (void)refreshMenu;
 
 @end

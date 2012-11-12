@@ -10,8 +10,8 @@
 
 @interface FNLaunchAtLoginController ()
 
-- (NSURL *) appUrl;
-- (LSSharedFileListItemRef) findItemForApp:(LSSharedFileListRef)loginItems;
+- (NSURL *)appUrl;
+- (LSSharedFileListItemRef)findItemForApp:(LSSharedFileListRef)loginItems;
 
 @end
 
@@ -21,7 +21,7 @@
     return [NSURL fileURLWithPath:[[NSBundle mainBundle] bundlePath]];
 }
 
-- (LSSharedFileListItemRef) findItemForApp:(LSSharedFileListRef)loginItems {
+- (LSSharedFileListItemRef)findItemForApp:(LSSharedFileListRef)loginItems {
     
     NSURL *appUrl = [self appUrl];
     
@@ -66,13 +66,12 @@
 
 #pragma mark Launch At Login property methods
 
-- (void) setLaunchAtLogin:(BOOL)enabled {
+- (void)setLaunchAtLogin:(BOOL)enabled {
     
     @synchronized(self) {        
         // Get login items and find app in list
         LSSharedFileListRef loginItems = LSSharedFileListCreate(NULL, kLSSharedFileListSessionLoginItems, NULL);
         LSSharedFileListItemRef appItem = [self findItemForApp:loginItems];
-        
         
         if (enabled && !appItem) {
             // If we want to set it it enabled
@@ -97,7 +96,7 @@
     }
 }
 
-- (BOOL) launchAtLogin {
+- (BOOL)launchAtLogin {
     // Get login items and find app in list
     LSSharedFileListRef loginItems = LSSharedFileListCreate(NULL, kLSSharedFileListSessionLoginItems, NULL);
     LSSharedFileListItemRef appItem = [self findItemForApp:loginItems];
