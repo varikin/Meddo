@@ -24,8 +24,10 @@
 		A659E15315F50480006C244C /* FNMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = A659E15215F50480006C244C /* FNMenuController.m */; };
 		A659E15615F511CC006C244C /* FNHostsService.m in Sources */ = {isa = PBXBuildFile; fileRef = A659E15515F511CC006C244C /* FNHostsService.m */; };
 		A665F0BE160182A3009E5EB3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A665F0BD160182A3009E5EB3 /* Security.framework */; };
+		A66C4D011651F1B600416C2D /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = A66C4D001651F1B600416C2D /* icon.icns */; };
 		A66C7A22161745090089CE7E /* com.fictitiousnonsense.MeddoHelper in CopyFiles */ = {isa = PBXBuildFile; fileRef = A6989F961606CD6100E3341B /* com.fictitiousnonsense.MeddoHelper */; };
 		A678BC231640CB2700636112 /* FNLaunchAtLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = A678BC221640CB2700636112 /* FNLaunchAtLoginController.m */; };
+		A68C34AE165151F1007B4534 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = A68C34AD165151F1007B4534 /* dsa_pub.pem */; };
 		A6989F9A1606CD6100E3341B /* MeddoHelper.c in Sources */ = {isa = PBXBuildFile; fileRef = A6989F991606CD6100E3341B /* MeddoHelper.c */; };
 		A6AA7F4915F9B46B005E2A01 /* FNHostLine.m in Sources */ = {isa = PBXBuildFile; fileRef = A6AA7F4815F9B46B005E2A01 /* FNHostLine.m */; };
 		A6AF9935163778EA0023F138 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6AF9934163778EA0023F138 /* Sparkle.framework */; };
@@ -103,8 +105,10 @@
 		A659E15415F511CC006C244C /* FNHostsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNHostsService.h; path = services/FNHostsService.h; sourceTree = "<group>"; };
 		A659E15515F511CC006C244C /* FNHostsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNHostsService.m; path = services/FNHostsService.m; sourceTree = "<group>"; };
 		A665F0BD160182A3009E5EB3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		A66C4D001651F1B600416C2D /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
 		A678BC211640CB2700636112 /* FNLaunchAtLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FNLaunchAtLoginController.h; path = controllers/FNLaunchAtLoginController.h; sourceTree = "<group>"; };
 		A678BC221640CB2700636112 /* FNLaunchAtLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FNLaunchAtLoginController.m; path = controllers/FNLaunchAtLoginController.m; sourceTree = "<group>"; };
+		A68C34AD165151F1007B4534 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		A6989F961606CD6100E3341B /* com.fictitiousnonsense.MeddoHelper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = com.fictitiousnonsense.MeddoHelper; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6989F991606CD6100E3341B /* MeddoHelper.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = MeddoHelper.c; sourceTree = "<group>"; };
 		A6989FA01606CDA800E3341B /* MeddoHelper-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MeddoHelper-Info.plist"; sourceTree = "<group>"; };
@@ -164,6 +168,8 @@
 		A65448831604198F0095DFB2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A66C4D001651F1B600416C2D /* icon.icns */,
+				A68C34AD165151F1007B4534 /* dsa_pub.pem */,
 				A659E12F15F45678006C244C /* MainMenu.xib */,
 			);
 			name = Resources;
@@ -381,6 +387,8 @@
 				A659E12515F45678006C244C /* InfoPlist.strings in Resources */,
 				A659E12B15F45678006C244C /* Credits.rtf in Resources */,
 				A659E13115F45678006C244C /* MainMenu.xib in Resources */,
+				A68C34AE165151F1007B4534 /* dsa_pub.pem in Resources */,
+				A66C4D011651F1B600416C2D /* icon.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

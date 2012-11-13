@@ -62,26 +62,26 @@ typedef enum {
         callbacks = [NSMutableArray array];
         
         // Start watching the filesystem for changes
-        CFStringRef path = (CFStringRef)kHostFile;
-        CFArrayRef pathsToWatch = CFArrayCreate(NULL, (const void **)&path, 1, NULL);
-        FSEventStreamContext context = { 0, (__bridge void *)(self), NULL, NULL, NULL };
-        stream = FSEventStreamCreate(NULL,
-                                     &fs_event_callback,
-                                     &context,
-                                     pathsToWatch,
-                                     kFSEventStreamEventIdSinceNow,
-                                     10.0, /* Latency in seconds */
-                                     kFSEventStreamCreateFlagNone /* Flags explained in reference */
-                                     );
-        FSEventStreamScheduleWithRunLoop(stream, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode);
-        FSEventStreamStart(stream);        
+//        CFStringRef path = (CFStringRef)kHostFile;
+//        CFArrayRef pathsToWatch = CFArrayCreate(NULL, (const void **)&path, 1, NULL);
+//        FSEventStreamContext context = { 0, (__bridge void *)(self), NULL, NULL, NULL };
+//        stream = FSEventStreamCreate(NULL,
+//                                     &fs_event_callback,
+//                                     &context,
+//                                     pathsToWatch,
+//                                     kFSEventStreamEventIdSinceNow,
+//                                     10.0, /* Latency in seconds */
+//                                     kFSEventStreamCreateFlagNone /* Flags explained in reference */
+//                                     );
+        //FSEventStreamScheduleWithRunLoop(stream, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode);
+        //FSEventStreamStart(stream);
     }
     return self;
 }
 
 - (void)dealloc {
-    FSEventStreamStop(stream);
-    FSEventStreamRelease(stream);
+//    FSEventStreamStop(stream);
+//    FSEventStreamRelease(stream);
 }
 
 #pragma mark - Listener stuff
