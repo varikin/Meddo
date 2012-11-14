@@ -1,4 +1,4 @@
-from fabric.api import env, local, hide, sudo
+from fabric.api import env, local, hide, lcd 
 from datetime import datetime
 import os
 
@@ -9,7 +9,7 @@ env.helper = "/Library/PrivilegedHelperTools/com.fictitiousnonsense.MeddoHelper"
 env.helper_plist = "/Library/LaunchDaemons/com.fictitiousnonsense.MeddoHelper.plist"
 
 def clean():
-    local("rm -f %s %s %s" % (env.zip, env.helper, env.helper_plist))
+    local("rm -f %s" % env.zip)
     with hide('stdout'):
         local("xcodebuild clean")
 
@@ -18,8 +18,9 @@ def build():
     clean()
     with hide('stdout'):
         local("xcodebuild -configuration Release")
-    local("zip --quiet -r build/Release/Meddo.zip build/Release/Meddo.app")
-    signature = local("openssl dgst -sha1 -binary < %s | openssl dgst -dss1 -sign %s | openssl enc -base64" % (env.zip, env.private_key), capture=True)
+    with lcd("build/Release"):
+        local("zip --quiet -r Meddo.zip Meddo.app")
+        signature = local("openssl dgst -sha1 -binary < Meddo.zip | openssl dgst -dss1 -sign %s | openssl enc -base64" % env.private_key, capture=True)
     print _app_cast_xml(signature)
 
 
