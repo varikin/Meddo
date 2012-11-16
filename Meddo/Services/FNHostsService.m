@@ -61,27 +61,36 @@ typedef enum {
     if (self != nil) {
         callbacks = [NSMutableArray array];
         
-        // Start watching the filesystem for changes
-//        CFStringRef path = (CFStringRef)kHostFile;
-//        CFArrayRef pathsToWatch = CFArrayCreate(NULL, (const void **)&path, 1, NULL);
-//        FSEventStreamContext context = { 0, (__bridge void *)(self), NULL, NULL, NULL };
-//        stream = FSEventStreamCreate(NULL,
-//                                     &fs_event_callback,
-//                                     &context,
-//                                     pathsToWatch,
-//                                     kFSEventStreamEventIdSinceNow,
-//                                     10.0, /* Latency in seconds */
-//                                     kFSEventStreamCreateFlagNone /* Flags explained in reference */
-//                                     );
-        //FSEventStreamScheduleWithRunLoop(stream, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode);
-        //FSEventStreamStart(stream);
+        // Path to watch the filesystem
+        CFStringRef path = (CFStringRef)kHostFile;
+        CFArrayRef paths = CFArrayCreate(NULL, (const void **)&path, 1, NULL);
+        
+        // Add self to context so the C callback can call into FNHostsService
+        FSEventStreamContext context = { 0, (__bridge void *)(self), NULL, NULL, NULL };
+        
+        // Listen for file events
+        FSEventStreamEventFlags flags = kFSEventStreamCreateFlagFileEvents;
+        
+        // How frequently to get events
+        CFTimeInterval latency = 5.0;
+        
+        // Start with current events, don't care about historical events
+        FSEventStreamEventId startAt = kFSEventStreamEventIdSinceNow;
+        
+        // Create the event stream
+        stream = FSEventStreamCreate(NULL, &fs_event_callback, &context, paths, startAt, latency, flags);
+        
+        // Schedule and start on the current run loop
+        FSEventStreamScheduleWithRunLoop(stream, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode);
+        FSEventStreamStart(stream);
     }
     return self;
 }
 
 - (void)dealloc {
-//    FSEventStreamStop(stream);
-//    FSEventStreamRelease(stream);
+    FSEventStreamStop(stream);
+    FSEventStreamInvalidate(stream);
+    FSEventStreamRelease(stream);
 }
 
 #pragma mark - Listener stuff
@@ -252,7 +261,9 @@ typedef enum {
     return [token characterAtIndex:0] == '#';
 }
 
-// Helper to check the type of the line
+/*
+ * Helper to check the type of the line
+ */
 - (LineType)getLineType:(NSArray *)tokens {
     if ([tokens count] == 0) {
         return BlankLine;
@@ -279,9 +290,11 @@ typedef enum {
     return BlankLine;
 }
 
-// Tries to set a name for a host based on either:
-// 1) A comment
-// 2) The first host name
+/*
+ * Tries to set a name for a host based on either:
+ * 1) A comment
+ * 2) The first host name
+ */
 - (NSString *)guessNameFromHost:(FNHost *)host {
     NSString *name;
     for (NSString * comment in [host comments]) {
@@ -301,8 +314,10 @@ typedef enum {
     return name;
 }
 
-// Helper to add the host to the list if not empty
-// Returns a new (or current empty) host
+/*
+ * Helper to add the host to the list if not empty
+ * Returns a new (or current empty) host
+ */
 - (FNHost *)saveHost:(FNHost *)host toArray:(NSMutableArray *)hosts {
     if (![host isEmpty]) {
         [host setName:[self guessNameFromHost:host]];
@@ -314,6 +329,9 @@ typedef enum {
 
 @end
 
+/*
+ * Callback for FSEvents. The hosts file has changed. Could even be us. No way to tell.
+ */
 void fs_event_callback(ConstFSEventStreamRef streamRef, void *context, size_t numEvents,
                        void *eventPaths, const FSEventStreamEventFlags eventFlags[],
                        const FSEventStreamEventId eventIds[]) {
