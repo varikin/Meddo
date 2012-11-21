@@ -25,6 +25,10 @@
     [preferences makeKeyAndOrderFront:sender];
 }
 
+- (NSString *)bundleVersionNumber {
+    return [NSString stringWithFormat:@"v%@", [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"]];
+}
+
 - (IBAction)quit:(id)sender {
     [NSApp terminate:sender];
 }

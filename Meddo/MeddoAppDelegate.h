@@ -17,6 +17,7 @@
 
 - (IBAction)openPreferences:(id)sender;
 - (IBAction)quit:(id)sender;
+- (NSString *)bundleVersionNumber;
 
 @end
 
